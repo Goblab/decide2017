@@ -1,0 +1,29 @@
+{{#burger-menu animation="scale-down" itemAnimation="stack" as |burger|}}
+  {{#burger.menu itemTagName="li" as |menu|}}
+   <span>Menu</span>
+    <a {{action burger.state.actions.close}} class="fa fa-close"></a>
+ 
+    <ul>
+      {{#if session.isAuthenticated}}
+        {{#menu.item}}
+          {{#link-to 'admin'}}Administrador{{/link-to}}
+        {{/menu.item}}
+      
+        {{#menu.item}}
+          <a {{action 'invalidateSession'}}>Logout</a>
+        {{/menu.item}}
+      {{else}}
+        {{#menu.item}}
+          {{#link-to 'login'}}Login{{/link-to}}
+        {{/menu.item}}
+      {{/if}}
+    </ul>
+
+
+  {{/burger.menu}}
+ 
+  {{#burger.outlet}}
+    <a class="fa fa-bars" {{action burger.state.actions.toggle}}></a>
+    {{outlet}}
+  {{/burger.outlet}}
+{{/burger-menu}}

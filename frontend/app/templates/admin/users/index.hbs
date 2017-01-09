@@ -1,0 +1,36 @@
+<h2 class="ui header dividing -flex">
+    Listado de Usuarios
+    <div class="actions">{{link-to "Crear nuevo usuario" "admin.users.new" classNames="ui orange button tiny" }}</div>
+</h2>
+
+{{#if model.length}}
+ <div class="section-content ">
+    <table class="ui celled striped table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+      <tbody>
+        {{#each model as |user|}}
+        <tr>
+          <td class="collapsing">
+             {{user.name}} {{user.lastName}} 
+          </td>
+          <td>{{user.email}} {{user.role}} {{user.wall}} {{user.groups.name}} {{user.friends.lastName}}</td>
+          <td class="right aligned collapsing">
+            {{link-to "Editar" "admin.users.edit" user.id class="ui button tiny"}}
+            <a href="#" {{action "remove" user}} class="ui button tiny">Eliminar</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{else}}
+  <div class="loading">
+  
+  </div>
+{{/if}}

@@ -1,0 +1,38 @@
+<h2 class="ui header dividing -flex">
+    Listado de Cargos
+    <div class="actions">{{link-to "Crear nuevo Cargo" "admin.positions.new" classNames="ui orange button tiny" }}</div>
+</h2>
+
+
+{{#if model.length}}
+ <div class="section-content ">
+  <table class="ui celled striped table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each model as |position|}}
+      <tr>
+        <td class="collapsing">
+           {{position.name}}
+        </td>
+        <td>{{position.description}}</td>
+        <td class="right aligned collapsing">
+          {{link-to "Editar" "admin.positions.edit" position class="ui button tiny"}}
+          <a href="#" {{action "remove" position}} class="ui button tiny">Eliminar</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+  <div class="loading">
+  
+  </div>
+{{/if}}
+
+

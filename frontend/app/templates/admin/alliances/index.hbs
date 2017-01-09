@@ -1,0 +1,41 @@
+<h2 class="ui header dividing -flex">
+    Listado de Alianzas
+    <div class="actions">{{link-to "Crear nueva Alianza" "admin.alliances.new" classNames="ui orange button tiny" }}</div>
+</h2>
+
+
+{{#if model.length}}
+ <div class="section-content ">
+  <table class="ui celled striped table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Lista</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each model as |alliance|}}
+      <tr>
+        <td class="collapsing">
+           {{alliance.name}}
+        </td>
+        <td class="collapsing">
+           {{alliance.list}}
+        </td>
+        <td class="right aligned collapsing">
+          {{link-to "Editar" "admin.alliances.edit" alliance class="ui button tiny"}}
+          <a href="#" {{action "remove" alliance}} class="ui button tiny">Eliminar</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+  <div class="loading">
+  
+  </div>
+{{/if}}
+
+

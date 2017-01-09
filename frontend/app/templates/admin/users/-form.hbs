@@ -1,0 +1,43 @@
+<div class="section-content home ui segment tall stacked">
+<form {{action "save" on="submit"}} class="ui form">
+  <div class="field">
+    <label>
+      Nombre
+      {{input type="text" value=model.user.name}}
+    </label>
+  </div>
+  
+  <div class="field">
+    <label>
+      Apellido
+      {{input type="text" value=model.user.lastName}}
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Email
+      {{input type="text" value=model.user.email}}
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Contraseña
+      {{input type="text" value=model.user.password}}
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Es Admin
+      {{input type="checkbox" name="isAdmin" checked=model.user.isAdmin}}
+      
+    </label>
+  </div>   
+  <div class="field">
+    <input type="submit" value="Guardar" class="ui button blue">
+  </div>
+</form>
+
+</div>

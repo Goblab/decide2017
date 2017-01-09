@@ -1,0 +1,39 @@
+<h2 class="ui header dividing -flex">
+    Listado de Roles
+    <div class="actions">{{link-to "Crear nuevo Rol" "admin.roles.new" classNames="ui orange button tiny" }}</div>
+</h2>
+
+
+{{#if model.length}}
+ <div class="section-content ">
+  <table class="ui celled striped table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each model as |role|}}
+      <tr>
+        <td class="collapsing">
+           {{role.name}}
+        </td>
+        <td>{{role.description}}</td>
+        <td class="right aligned collapsing">
+          {{link-to "Editar" "admin.roles.edit" role class="ui button tiny"}}
+          <a href="#" {{action "remove" role}} class="ui button tiny">Eliminar</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+  <div class="loading">
+  
+  </div>
+{{/if}}
+
+
