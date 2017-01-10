@@ -4,6 +4,15 @@
     <a {{action burger.state.actions.close}} class="fa fa-close"></a>
  
     <ul>
+      {{#menu.item}}
+        {{#link-to 'index'}}Juego{{/link-to}}
+      {{/menu.item}}
+      {{#menu.item}}
+        {{#link-to 'candidates'}}Candidatos{{/link-to}}
+      {{/menu.item}}
+      {{#menu.item}}
+        {{#link-to 'alliances'}}Alianzas{{/link-to}}
+      {{/menu.item}}
       {{#if session.isAuthenticated}}
         {{#menu.item}}
           {{#link-to 'admin'}}Administrador{{/link-to}}

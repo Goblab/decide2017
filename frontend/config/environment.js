@@ -24,8 +24,8 @@ module.exports = function(environment) {
   };
 
   ENV['adapter'] = {
-      'fileUrl': 'http://localhost:1337/',
-      'upload': 'http://localhost:1337/upload-file',      
+      'fileUrl': 'http://somosfuturo.com.ar:1337/',
+      'upload': 'http://somosfuturo.com.ar:1337/upload-file',      
   };
   
   if (environment === 'development') {

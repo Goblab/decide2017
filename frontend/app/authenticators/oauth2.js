@@ -18,7 +18,7 @@ const assign = emberAssign || merge;
 const keys = Object.keys || emberKeys; //
 
 export default OAuth2PasswordGrant.extend({
-    serverTokenEndpoint: 'http://localhost:1337/auth/login',
+    serverTokenEndpoint: 'http://somosfuturo.com.ar:1337/auth/login',
     authorizationPrefix: null,
     tokenPropertyName: 'access_token',
     authorizationHeaderName: 'access_token',
