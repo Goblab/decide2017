@@ -1,3 +1,5 @@
+
+
 a,
 a:active,
 a:focus,
@@ -37,10 +39,10 @@ label {
     font-weight: 300
 }
 a {
-    #color: #e24b31
+    color: #e24b31
 }
 a:hover {
-    #color: #db3a1f
+    color: #db3a1f
 }
 .pointer {
     cursor: pointer
@@ -204,4 +206,21 @@ a:hover {
 }
 .inspiration {
     padding: 40px 0
+}
+
+
+.match-quiz {
+    max-width: 1080px;
+    margin: 25px auto;
+    height: calc(100vh - 50px);
+    background: #f9f9f9;
+    padding: 1em;
+}
+
+.off-canvas {
+        position: fixed;
+    top: 15px;
+    font-size: 30px;
+    left: 15px;
+
 }

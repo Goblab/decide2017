@@ -1,0 +1,13 @@
+$mobile: new-breakpoint(max-width 600px 4);
+$tablet: new-breakpoint(max-width 800px 12);
+$desktop: new-breakpoint(min-width 1400px 12);
+
+$main-color: #2d4059;
+$sub-color: #229954;
+$dark: #1C2833;
+$white: #F8F9F9;
+
+
+/* Font Familty */
+$font-sans: 'Alegreya Sans', sans-serif;
+$font-sc: 'Alegreya Sans SC', sans-serif;
