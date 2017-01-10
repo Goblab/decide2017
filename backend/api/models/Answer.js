@@ -24,9 +24,16 @@ module.exports = {
   			model: 'question'
   		},
 
-  		value: 'number',
+  		value: 'string',
 
-  		comment: 'string',
+      comment: 'string',
+      
+  		dummy: 'string',
+
+      isGuest: {
+        type: 'boolean',
+        defaultsTo: false
+      }
   }
 };
 

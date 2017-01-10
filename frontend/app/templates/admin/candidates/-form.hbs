@@ -1,0 +1,91 @@
+<div class="section-content home ui segment tall stacked">
+<form {{action "save" on="submit"}} class="ui form">
+  <div class="field">
+    <label>
+      Cargo
+      {{ember-selectize
+        content=model.positions
+        optionLabelPath="content.name"
+        selection=model.candidate.position
+        placeholder="Selecciona un Cargo" }}        
+    </label>
+  </div>
+  <div class="field">
+    <label>
+      Allianza
+      {{ember-selectize
+        content=model.alliances
+        optionLabelPath="content.name"
+        selection=model.candidate.alliance
+        placeholder="Selecciona una Alianza" }}        
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Nombre completo
+      {{input type="text" value=model.candidate.name}}
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Twitter
+      {{input type="text" value=model.candidate.twitter}}
+    </label>
+  </div>
+  <div class="field">
+    <label>
+      Facebook
+      {{input type="text" value=model.candidate.facebook}}
+    </label>
+  </div>  
+  <div class="field">
+    <label>
+      Web
+      {{input type="text" value=model.candidate.web}}
+    </label>
+  </div> 
+
+  <div class="field">
+    <label>
+      CED
+      {{input type="text" value=model.question.ced}}
+    </label>
+  </div>
+
+  {{#if model.candidate.avatar.url}}
+    <div class="img-container">
+      <img src={{model.candidate.avatar.url}}>
+    </div>
+  {{/if}}
+  {{upload-file file=model.candidate.avatar multiple=false}}
+
+  <ul>
+  {{#each model.answers as |answer|}}
+    <li>
+      <h2>{{answer.question.category.name}}</h2> 
+      <span>{{answer.question.title}}</span> 
+      <div>
+        <label>Respuesta</label>
+        {{input type="text" value=answer.value}}
+      </div> 
+      <div>
+        <label>Justificacion</label>
+        {{input type="text" value=answer.comment}}
+      </div>
+      <div>
+        <label>Presunta respuesta</label>
+        {{input type="text" value=answer.dummy}}
+      </div>        
+    </li>
+    
+  {{/each}}
+  </ul>
+
+
+  <div class="field">
+    <input class="ui button" type="submit" value="Guardar">
+  </div>
+</form>
+</div>

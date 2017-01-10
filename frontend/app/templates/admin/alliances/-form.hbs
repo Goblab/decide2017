@@ -12,6 +12,14 @@
       {{input type="text" value=model.list}}
     </label>
   </div>
+
+  {{#if model.avatar.url}}
+    <div class="img-container">
+      <img src={{model.avatar.url}}>
+    </div>
+  {{/if}}
+  {{upload-file file=model.avatar multiple=false}}
+
   <div class="field">
     <input class="ui button" type="submit" value="Guardar">
   </div>

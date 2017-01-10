@@ -1,6 +1,6 @@
 <h2 class="ui header dividing -flex">
-    Listado de Roles
-    <div class="actions">{{link-to "Crear nuevo Rol" "admin.roles.new" classNames="ui orange button tiny" }}</div>
+    Listado de Preguntas
+    <div class="actions">{{link-to "Crear nueva Pregunta" "admin.questions.new" classNames="ui orange button tiny" }}</div>
 </h2>
 
 
@@ -9,21 +9,21 @@
   <table class="ui celled striped table">
   <thead>
     <tr>
-      <th>Nombre</th>
+      <th>Categoria</th>
       <th>Descripción</th>
       <th>Acciones</th>
     </tr>
   </thead>
     <tbody>
-      {{#each model as |role|}}
+      {{#each model as |question|}}
       <tr>
         <td class="collapsing">
-           {{role.name}}
+           {{question.category.name}}
         </td>
-        <td>{{role.description}}</td>
+        <td>{{question.description}}</td>
         <td class="right aligned collapsing">
-          {{link-to "Editar" "admin.roles.edit" role class="ui button tiny"}}
-          <a href="#" {{action "remove" role}} class="ui button tiny">Eliminar</a>
+          {{link-to "Editar" "admin.questions.edit" question.id class="ui button tiny"}}
+          <a href="#" {{action "remove" question}} class="ui button tiny">Eliminar</a>
         </td>
       </tr>
       {{/each}}

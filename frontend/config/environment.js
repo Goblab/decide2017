@@ -23,6 +23,11 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['adapter'] = {
+      'fileUrl': 'http://localhost:1337/',
+      'upload': 'http://localhost:1337/upload-file',      
+  };
+  
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

@@ -10,49 +10,68 @@ Router.map(function() {
   this.route('about');
   this.route('login');
 
+  this.route("candidates", function() {
+    this.route("view", {     
+      path: ":candidate_id/view"
+    });
+  });
+
+  this.route("alliances", function() {
+    this.route("view", {     
+      path: ":alliance_id/view"
+    });
+  });
+
 
   this.route('admin', function () {
-	  this.route("users", function() {
-	    this.route("new");
+      this.route("users", function() {
+        this.route("new");
 
-	    this.route("edit", {
-	      path: ":user_id/edit"
-	    });
+        this.route("edit", {
+          path: ":user_id/edit"
+        });
 
-	    this.route("show", {
-	      path: ":user_id"
-	    });
-	  });
+        this.route("show", {
+          path: ":user_id"
+        });
+      });
 
-	  this.route("categories", function() {
-	    this.route("new");
-	    this.route("edit", {
-	      path: ":category_id/edit"
-	    });
-	  });
-	  
-	  this.route("positions", function() {
-	    this.route("new");
-	    this.route("edit", {
-	      path: ":position_id/edit"
-	    });
-	  });
+      this.route("categories", function() {
+        this.route("new");
+        this.route("edit", {
+          path: ":category_id/edit"
+        });
+      });
+      
+      this.route("positions", function() {
+        this.route("new");
+        this.route("edit", {
+          path: ":position_id/edit"
+        });
+      });
 
-	  this.route("questions", function() {
-	    this.route("new");
-	    this.route("edit", {
-	      path: ":question_id/edit"
-	    });
-	  });
+      this.route("questions", function() {
+        this.route("new");
+        this.route("edit", {
+          path: ":question_id/edit"
+        });
+      });
 
-	  this.route("alliances", function() {
-	    this.route("new");
-	    this.route("edit", {
-	      path: ":alliance_id/edit"
-	    });
-	  });
+      this.route("alliances", function() {
+        this.route("new");
+        this.route("edit", {
+          path: ":alliance_id/edit"
+        });
+      });
 
-  });  
+      this.route("candidates", function() {
+        this.route("new");
+        this.route("edit", {
+          path: ":candidate_id/edit"
+        });
+      });	  
+
+  });
 });
 
 export default Router;

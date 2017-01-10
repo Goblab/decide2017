@@ -8,7 +8,14 @@
 module.exports = {
 
   attributes: {
+  	position: {
+  		model: 'position'
+  	},
 
+  	answers: {
+  		collection: 'answer',
+  		via: 'guest'
+  	}
   }
 };
 

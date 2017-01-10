@@ -2,14 +2,25 @@
 <form {{action "save" on="submit"}} class="ui form">
   <div class="field">
     <label>
-      Nombre
-      {{input type="text" value=model.name}}
+      Categoria
+      {{ember-selectize
+        content=model.categories
+        optionLabelPath="content.name"
+        selection=model.question.category
+        placeholder="Selecciona una categoria" }}        
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Titulo
+      {{input type="text" value=model.question.title}}
     </label>
   </div>
   <div class="field">
     <label>
       Descripción
-      {{input type="text" value=model.description}}
+      {{input type="text" value=model.question.description}}
     </label>
   </div>
   <div class="field">

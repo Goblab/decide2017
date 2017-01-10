@@ -1,0 +1,37 @@
+<h2>{{model.candidate.name}}</h2>
+<h3>{{model.candidate.position.name}}</h3>
+<span>{{model.candidate.alliance.name}}</span>
+
+{{#if model.candidate.avatar.url}}
+<div style="display:block; float: right">
+	<img src="{{model.candidate.avatar.url}}"/>
+</div>
+{{/if}}
+<ul>
+	{{#each model.answers as |answer|}}
+		<li>
+		  <h2>{{answer.question.category.name}}</h2> 
+		  <span>{{answer.question.title}}</span> 
+		  {{#if answer.value}}
+		  <div>
+		    <label>Respuesta</label>
+		    {{answer.value}}
+		  </div> 
+		  <div>
+		    <label>Justificacion</label>
+		    {{answer.comment}}
+		  </div>
+		  {{else}}
+			  <div>
+			    <label>El candidato no respondio</label>
+			  </div>
+			  {{#if answer.dummy}}        
+				  <div>
+				    <label>Presunta respuesta</label>
+				    {{answer.dummy}}
+				  </div>        
+			  {{/if}}
+		  {{/if}}
+		</li>
+	{{/each}}
+</ul>

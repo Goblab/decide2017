@@ -1,0 +1,13 @@
+<h2 class="ui header dividing -flex">
+    Alianzas
+ </h2>
+
+<ul>
+	{{#each model as |alliance|}}
+		<li> 
+			{{#link-to "alliances.view" alliance.id}} 
+				{{alliance.name}} 
+			{{/link-to}}			
+		</li>
+	{{/each}}
+</ul>

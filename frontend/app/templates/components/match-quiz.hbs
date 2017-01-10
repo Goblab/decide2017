@@ -1,0 +1,48 @@
+{{yield}}
+
+
+{{#if guest}}
+	{{#if isFinish}}
+		Lista de candidatos
+		<span {{action 'newGame'}}>Jugar de nuevo</span>
+	{{else}}
+		<h2>{{currentQuestion.category.name}}</h2>
+		<label>{{currentQuestion.title}}</label>
+		{{#if currentAnswer.value}}
+			<ul>
+			{{#each candidateAnwers as |answer|}}
+				<li> 
+				  {{answer.candidate.name}}
+				  {{#if answer.value}}
+				  <div>
+				    <label>Respuesta</label>
+				    {{answer.response}}
+				  </div> 
+				  <div>
+				    <label>Justificacion</label>
+				    {{answer.comment}}
+				  </div>
+				  {{else}}
+					  <div>
+					    <label>El candidato no respondio</label>
+					  </div>
+					  {{#if answer.dummy}}        
+						  <div>
+						    <label>Presunta respuesta</label>
+						    {{answer.dummy}}
+						  </div>        
+					  {{/if}}
+				  {{/if}}
+				</li>
+			{{/each}}
+			</ul>
+			<span {{action 'next'}}>Siguiente Pregunta</span>
+		{{else}}
+			{{yes-no answer=currentAnswer onSelect=(action 'responsed')}}
+		{{/if}}
+	{{/if}}
+{{else}}
+	<span {{action 'newGame'}}>Nuevo Juego</span>
+{{/if}}
+
+

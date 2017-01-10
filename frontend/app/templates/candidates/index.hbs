@@ -1,0 +1,15 @@
+<h2 class="ui header dividing -flex">
+    Candidatos
+ </h2>
+
+<ul>
+	{{#each model as |candidate|}}
+		<li> 
+			{{#link-to "candidates.view" candidate.id}} 
+				{{candidate.name}} 
+			{{/link-to}}
+			
+			{{candidate.alliance.name}}
+		</li>
+	{{/each}}
+</ul>

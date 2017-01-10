@@ -12,6 +12,22 @@ module.exports = {
    		res.sendfile(req.path.substr(1));
 	},
 
+
+	resetAnwers: function (req, res) {
+		
+		Answer.destroy().exec(function (err, ok) {
+			
+		});
+		Candidate.destroy().exec(function (err, ok) {
+			
+		});
+		Guest.destroy().exec(function (err, ok) {
+			
+		});
+
+		res.ok({results: 'ok'});
+	},
+
 	upload: function (req, res) {
 		// body...
 		if(req.method === 'GET')

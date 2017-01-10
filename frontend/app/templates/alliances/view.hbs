@@ -1,0 +1,14 @@
+<h2>{{model.alliance.name}}</h2>
+
+<ul>
+	{{#each model.candidates as |candidate|}}
+		<li>
+		  <h2>
+		  	{{#link-to 'candidates.view' candidate.id}}
+		  		{{candidate.name}}
+		  	{{/link-to}}
+		  </h2> 
+		  <span>{{candidate.position.name}}</span> 
+		</li>
+	{{/each}}
+</ul>
