@@ -22,13 +22,7 @@ export default Ember.Component.extend({
 
 
 	hasNextStep: Ember.computed('currentQuestionIndex', 'questions', function () {
-		console.log(this.get('questions.length'));
 		return (this.get('currentQuestionIndex') < (this.get('questions.length') - 1));
-	}),
-
-
-	matchCandidates: Ember.computed('isFinish', function () {
-		return null;
 	}),
 
 	actions: {
@@ -67,6 +61,9 @@ export default Ember.Component.extend({
 		responsed: function () {
 			var _this = this;
 			this.get('currentAnswer').save();
+			this.get('store').find('match-candidate', this.get('guest').get('id')).then(function (match) {
+				console.log(match.get('matchs'));
+			});
 			this.send('next');
 			//this.get('store').query('answer', { position: this.get('position').get('id'), question: this.get('currentQuestion').get('id'), isGuest: false}).then(function (ans) {
 			//	_this.set('candidateAnwers', ans);

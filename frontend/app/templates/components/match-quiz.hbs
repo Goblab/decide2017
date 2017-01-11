@@ -40,6 +40,15 @@
 			{{/each}}
 			</ul>
 			<div class="ui divider"></div>
+			<div>
+			{{#each matchCandidates.matchs as |match|}}
+				<li> 
+				  {{match.percent}}
+				 </li>
+			{{/each}}
+
+			</div>
+			<div class="ui divider"></div>
 			<button class="ui tiny right labeled icon button" {{action 'next'}}>
 			  <i class="right arrow icon"></i>
 			  Siguiente Pregunta

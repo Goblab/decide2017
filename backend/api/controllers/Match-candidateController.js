@@ -73,7 +73,7 @@ module.exports = {
 		  	}); 
 
 
-			res.ok({"match-candidate": {candidates: candidates, matchs: candidatesMatchs}});
+			res.ok({"match-candidate": {id: pk, candidates: candidates, matchs: candidatesMatchs}});
 	    });
 	  });
 	}, 	

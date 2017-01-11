@@ -7,4 +7,8 @@ export default DS.RESTAdapter.extend(DataAdapterMixin, {
   namespace: 'api',
   coalesceFindRequests: true,
   host: 'http://somosfuturo.com.ar:1337',
+
+  pathForType: function(type) {
+    return Ember.String.dasherize(this._super(type));
+  }
 });
