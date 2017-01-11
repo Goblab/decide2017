@@ -59,16 +59,30 @@ module.exports = {
 
 	    var candidatesAnswerQuery = Answer.find().where({position: matchingRecord.position, isGuest: false}).exec(function found(err, matchingRecords) {
 
+	    	var guestResponseTotal = 0;
+
+	    	_.each(matchingRecord.answers, function (answer) {
+	    		if (answer.value > 0) {
+	    			guestResponseTotal++;
+	    		}
+	    	});
+
 	    	_.each(matchingRecords, function (answer) {
-	    	var picked = _.filter(candidatesMatchs, { 'id': answer.candidate } );
-    		
-    		if (picked.length < 1) {
-	    			picked = {id: answer.candidate, candidate: answer.candidate, points: 0, percent: Math.round(Math.random() * (100 - 1)), responsed: 0};
+		    	var picked = _.filter(candidatesMatchs, { 'id': answer.candidate } );
+		    	var guestAnswer = _.filter(matchingRecord.answers, {question: answers.question});
+
+	    		if (picked.length < 1) {
+	    			picked = {id: answer.candidate, candidate: answer.candidate, points: 0, percent: 0, responsed: 0};
 	    			candidatesMatchs.push(picked);
 	    			candidates.push(answer.candidate);
 	    		}
+	    		
 	    		if (answer.value > 0) {
 	    			picked.responsed++;
+	    			if (guestAnswer.value == answer.value) {
+	    				picked.points++;
+	    				picked.percent = Math.floor(picked.responsed / guestResponseTotal * 100));
+	    			}
 	    		}
 		  	}); 
 
