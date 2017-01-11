@@ -81,9 +81,12 @@ module.exports = {
 
 	    		if (answer.value && parseInt(answer.value) > 0) {
 	    			picked.responsed++;
-	    			if (guestAnswer.value == answer.value) {
-	    				picked.points++;
-	    				picked.percent = Math.floor((picked.responsed / guestResponseTotal * 100));
+	    			if (guestAnswer[0]) {
+	   					guestAnswer = guestAnswer[0];				
+		    			if (guestAnswer.value == answer.value) {
+		    				picked.points++;
+		    				picked.percent = Math.floor((picked.responsed / guestResponseTotal * 100));
+		    			}
 	    			}
 	    		}
 		  	}); 
