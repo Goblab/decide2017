@@ -85,7 +85,7 @@ module.exports = {
 	   					guestAnswer = guestAnswer[0];				
 		    			if (guestAnswer.value == answer.value) {
 		    				picked.points++;
-		    				picked.percent = Math.floor((picked.responsed / guestResponseTotal * 100));
+		    				picked.percent = Math.floor((picked.points / guestResponseTotal * 100));
 		    			}
 	    			}
 	    		}
