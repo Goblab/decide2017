@@ -62,7 +62,7 @@ module.exports = {
 	    	var guestResponseTotal = 0;
 
 	    	_.each(matchingRecord.answers, function (answer) {
-	    		if (answer.value > 0) {
+	    		if (answer.value) {
 	    			guestResponseTotal++;
 	    		}
 	    	});
@@ -77,7 +77,7 @@ module.exports = {
 	    			candidates.push(answer.candidate);
 	    		}
 
-	    		if (answer.value > 0) {
+	    		if (answer.value) {
 	    			picked.responsed++;
 	    			if (guestAnswer.value == answer.value) {
 	    				picked.points++;
