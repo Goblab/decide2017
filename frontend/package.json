@@ -43,7 +43,7 @@
     "ember-resolver": "^2.0.3",
     "ember-simple-auth": "1.0.0",
     "ember-welcome-page": "^1.0.3",
-    "ember-cli-sass": "4.0.1",
+    "ember-cli-sass": "6.1.0",
     "ember-cli-tooltipster": "0.1.4",
     "semantic-ui-ember": "0.9.3",
     "install": "0.8.4",

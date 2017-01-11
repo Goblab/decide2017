@@ -26,6 +26,11 @@ export default Ember.Component.extend({
 		return (this.get('currentQuestionIndex') < (this.get('questions.length') - 1));
 	}),
 
+
+	matchCandidates: Ember.computed('isFinish', function () {
+		return null;
+	}),
+
 	actions: {
 		newGame: function () {
 			var store = this.get('store');
@@ -62,10 +67,10 @@ export default Ember.Component.extend({
 		responsed: function () {
 			var _this = this;
 			this.get('currentAnswer').save();
-			
-			this.get('store').query('answer', { position: this.get('position').get('id'), question: this.get('currentQuestion').get('id'), isGuest: false}).then(function (ans) {
-				_this.set('candidateAnwers', ans);
-			});
+			this.send('next');
+			//this.get('store').query('answer', { position: this.get('position').get('id'), question: this.get('currentQuestion').get('id'), isGuest: false}).then(function (ans) {
+			//	_this.set('candidateAnwers', ans);
+			//});
 		},
 		
 		next: function () {

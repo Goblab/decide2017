@@ -1,10 +1,11 @@
-{{#link-to 'admin.users'}}Usuarios{{/link-to}}
-{{#link-to 'admin.alliances'}}Alianzas{{/link-to}}
-{{#link-to 'admin.positions'}}Cargos{{/link-to}}
-{{#link-to 'admin.categories'}}Categorias{{/link-to}}
-{{#link-to 'admin.questions'}}Preguntas{{/link-to}}
-
-
+<ul>
+<li>{{#link-to 'admin.users'}}Usuarios{{/link-to}}</li>
+<li>{{#link-to 'admin.alliances'}}Alianzas{{/link-to}}</li>
+<li>{{#link-to 'admin.positions'}}Cargos{{/link-to}}</li>
+<li>{{#link-to 'admin.categories'}}Categorias{{/link-to}}</li>
+<li>{{#link-to 'admin.questions'}}Preguntas{{/link-to}}</li>
+<li>{{#link-to 'admin.candidates'}}candidatos{{/link-to}}</li>
+</ul>
 
 <input class="input-file scan-app-magia" type="file" id="file">
 <a {{action 'process'}} class="scan-app-process">Cargar data</a>

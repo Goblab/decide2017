@@ -68,7 +68,7 @@
       <span>{{answer.question.title}}</span> 
       <div>
         <label>Respuesta</label>
-        {{input type="text" value=answer.value}}
+        {{yes-no answer=answer}}
       </div> 
       <div>
         <label>Justificacion</label>
@@ -78,8 +78,7 @@
         <label>Presunta respuesta</label>
         {{input type="text" value=answer.dummy}}
       </div>        
-    </li>
-    
+    </li>    
   {{/each}}
   </ul>
 
