@@ -76,12 +76,12 @@ module.exports = {
 	    			candidatesMatchs.push(picked);
 	    			candidates.push(answer.candidate);
 	    		}
-	    		
+
 	    		if (answer.value > 0) {
 	    			picked.responsed++;
 	    			if (guestAnswer.value == answer.value) {
 	    				picked.points++;
-	    				picked.percent = Math.floor(picked.responsed / guestResponseTotal * 100));
+	    				picked.percent = Math.floor((picked.responsed / guestResponseTotal * 100));
 	    			}
 	    		}
 		  	}); 
