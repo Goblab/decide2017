@@ -10,6 +10,7 @@ export default Ember.Component.extend({
 	questions: [],
 	answers: [],
 	isFinish: false,
+	matchs: [],
 
 	currentQuestion: Ember.computed('currentQuestionIndex', 'questions', function () {
 		return this.get('questions').objectAt(this.get('currentQuestionIndex'));
@@ -60,11 +61,26 @@ export default Ember.Component.extend({
 
 		responsed: function () {
 			var _this = this;
+			var matchs = [];
 			this.get('currentAnswer').save();
 			this.get('store').find('match-candidate', this.get('guest').get('id')).then(function (match) {
-				console.log(match.get('matchs'));
+				match.get('candidates').forEach(function (candidate) {
+					var mm = {};
+					match.get('matchs').forEach(function (match) {
+						if (match.candidate == candidate.get('id')) {
+							mm = match;
+						}				
+					})
+					matchs.push(Ember.Object.create({
+						candidate: candidate,
+						percent: mm.percent,
+						points: mm.points
+					}));
+				});
+				_this.set('matchs', matchs.sortBy('percent').reverse());
 			});
-			this.send('next');
+
+			//this.send('next');
 			//this.get('store').query('answer', { position: this.get('position').get('id'), question: this.get('currentQuestion').get('id'), isGuest: false}).then(function (ans) {
 			//	_this.set('candidateAnwers', ans);
 			//});

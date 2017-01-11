@@ -5,6 +5,7 @@ export default Ember.Route.extend({
 	  	return Ember.RSVP.hash({
 	      positions: this.store.findAll('position'),
 	      questions: this.store.findAll('question'),
+	      categories: this.store.findAll('category')
 	    }) 		
 	},	
 });

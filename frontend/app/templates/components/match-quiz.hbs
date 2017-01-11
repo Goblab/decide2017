@@ -5,6 +5,17 @@
 {{#if guest}}
 	{{#if isFinish}}
 		Lista de candidatos
+		<div>
+			<ul>
+			{{#each matchs as |match|}}
+				<li>
+				  {{match.candidate.name}} 
+				  {{match.percent}}
+				 </li>
+			{{/each}}
+			</ul>
+		</div>
+		
 		<span {{action 'newGame'}}>Jugar de nuevo</span>
 	{{else}}
 		<div class="quiz" style="text-align: center;">
@@ -41,12 +52,14 @@
 			</ul>
 			<div class="ui divider"></div>
 			<div>
-			{{#each matchCandidates.matchs as |match|}}
-				<li> 
-				  {{match.percent}}
-				 </li>
-			{{/each}}
-
+				<ul>
+				{{#each matchs as |match|}}
+					<li>
+					  {{match.candidate.name}} 
+					  {{match.percent}}
+					 </li>
+				{{/each}}
+				</ul>
 			</div>
 			<div class="ui divider"></div>
 			<button class="ui tiny right labeled icon button" {{action 'next'}}>
