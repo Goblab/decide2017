@@ -75,6 +75,8 @@ module.exports = {
 	    			picked = {id: answer.candidate, candidate: answer.candidate, points: 0, percent: 0, responsed: 0};
 	    			candidatesMatchs.push(picked);
 	    			candidates.push(answer.candidate);
+	    		} else {
+	    			picked = picked[0];
 	    		}
 
 	    		if (answer.value && parseInt(answer.value) > 0) {
