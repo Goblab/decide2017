@@ -2,14 +2,25 @@
     Candidatos
  </h2>
 
-<ul>
+<ul  class="ui link items">
 	{{#each model as |candidate|}}
-		<li> 
-			{{#link-to "candidates.view" candidate.id}} 
+		<li class="item"> 
+		<div class="ui tiny circular image" style="
+    height: 80px;
+">
+		  <img src="{{candidate.avatar.url}}" style="
+    position: relative;
+    top: -10px;
+">
+		</div>
+			<div class="content">
+			  <div class="header">{{#link-to "candidates.view" candidate.id}} 
 				{{candidate.name}} 
-			{{/link-to}}
-			
-			{{candidate.alliance.name}}
+			{{/link-to}}</div>
+			  <div class="description">
+			    <p>{{candidate.alliance.name}}</p>
+			  </div>
+			</div>
 		</li>
 	{{/each}}
 </ul>

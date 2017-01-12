@@ -1,9 +1,8 @@
 {{#burger-menu animation="scale-down" itemAnimation="stack" as |burger|}}
   {{#burger.menu itemTagName="li" as |menu|}}
-   <span>Menu</span>
-    <a {{action burger.state.actions.close}} class="fa fa-close"></a>
+    <a {{action burger.state.actions.close}} class="off-canvas-close fa fa-close"></a>
  
-    <ul>
+    <ul class="ui secondary vertical pointing menu">
       {{#menu.item}}
         {{#link-to 'index'}}Juego{{/link-to}}
       {{/menu.item}}
@@ -33,6 +32,15 @@
  
   {{#burger.outlet}}
     <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
-    {{outlet}}
+    <a href="" class="logo">
+      <img src="/assets/images/logo.png" width="200px" alt="">
+    </a>
+    <div class="ui container" style="padding: 0;background: rgba(255, 255, 255, 0.92);height: auto;width: 86vw;margin: 70px 5vw 0 5vw;border-radius: 10px;max-width: 900px;min-height: 80vh;z-index: 1;position: relative;">
+      <div class="segment" style="
+    padding: 1em;
+">
+      {{outlet}}
+      </div>
+    </div>
   {{/burger.outlet}}
 {{/burger-menu}}

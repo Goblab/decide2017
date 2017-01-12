@@ -2,12 +2,16 @@
     Alianzas
  </h2>
 
-<ul>
+<ul class="ui link items">
 	{{#each model as |alliance|}}
-		<li> 
-			{{#link-to "alliances.view" alliance.id}} 
-				{{alliance.name}} 
-			{{/link-to}}			
+		<li class="item"> 
+			<div class="content">
+			  <div class="header">
+			   {{#link-to "alliances.view" alliance.id}} 
+			   	{{alliance.name}} 
+			   {{/link-to}}			
+			  </div>
+			</div>
 		</li>
 	{{/each}}
 </ul>

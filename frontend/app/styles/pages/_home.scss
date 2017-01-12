@@ -21,7 +21,7 @@ html {
     margin: 0;
     height: 100%;
     width: 100%;
-    background-color: #666;
+    //background-color: #666;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     color: #e2e2e2
@@ -30,6 +30,11 @@ html {
 .header h1 {
     font-family: 'Bungee Hairline', cursive
 }
+
+body {
+    background: url(/assets/images/bg-home.jpg);
+}
+
 h1,
 h2,
 h3,
@@ -51,10 +56,11 @@ a:hover {
     clear: both
 }
 .ember-burger-menu .bm-outlet>.bm-content {
-    background: #1d2837
+    background:rgba(232, 69, 69, 0.81);
+    
 }
 .ember-burger-menu .bm-menu {
-    background: #e24b31
+    background: #e24b31;
 }
 .ember-burger-menu .bm-menu a.close {
     position: absolute;
@@ -68,7 +74,7 @@ a:hover {
     text-shadow: 0 0 1px rgba(0, 0, 0, .1);
     font-size: 2em;
     text-align: center;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-weight: 700
 }
 .ember-burger-menu .bm-menu h2>i {
@@ -160,8 +166,8 @@ a:hover {
     right: 50px
 }
 .header {
-    background: #233040;
-    padding-top: 60px
+    //background: #233040;
+    //padding-top: 60px;
 }
 .header h1 {
     font-weight: 700
@@ -210,17 +216,57 @@ a:hover {
 
 
 .match-quiz {
-    max-width: 1080px;
-    margin: 25px auto;
-    height: calc(100vh - 50px);
-    background: #f9f9f9;
-    padding: 1em;
+    height: auto;
+    /* padding: 1em; */
+    /* display: flex; */
+    /* align-items: flex-start; */
+    /* justify-content: center; */
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    //background: rgba(0,0,0,0.6);
 }
 
 .off-canvas {
-        position: fixed;
-    top: 15px;
-    font-size: 30px;
+    position: fixed;
+    top: 17px;
+    font-size: 35px;
     left: 15px;
+    color: #fff;
 
+    &-close {
+        position: fixed;
+        color: #fff;
+        left: 268px;
+        top: 10px;
+        font-size: 25px;
+        cursor: pointer;
+    }
+}
+
+.candi-answer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: baseline;
+
+    li {    
+        display: flex;
+        width: 30%;
+        flex-direction: column;
+        margin: 15px 10px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        min-height: 130px;
+    }
+}
+
+.logo {
+    position: fixed;
+        top: 15px;
+        left: 50px;
+}
+
+.ui.vertical.menu {
+    width: 100%;
 }

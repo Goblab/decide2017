@@ -1,10 +1,25 @@
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input id='identification' placeholder='Enter Login' value=identification}}
+<div class="login">
+	
+<form {{action 'authenticate' on='submit'}} class="ui form">
+  <div class="grouped fields">
+    <div class="field">
+    	<label for="identification">Login</label>
+      {{input id='identification' placeholder='Enter Login' value=identification}}
+    </div>
+    <div class="field">
   <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
+     	
+     {{input id='password' placeholder='Enter Password' type='password' value=password}}
+    </div>
+  </div>
+  <button  class="fluid ui primary button" type="submit">Login</button>
   {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
+    <p class="dashboard">{{errorMessage}}</p>
   {{/if}}
+
+ 
+  
+  
+  
 </form>
+</div>

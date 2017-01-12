@@ -4,11 +4,11 @@
 {{#if creating}}
 	<div class="start" style="text-align: center;">
 			
-			<h2 class="ui center aligned icon header" style="background: #f9f9f9;">
-			  <i class="circular users icon"></i>
+			<img src="/assets/images/logosolo.png" width="150" height="150" alt="" style="margin-top: 35px;">
+			<h2 class="ui center aligned icon header">
 			  Decision 2017
 			</h2>
-			  <label>Creando juego...</label>
+			<button class="ui tiny positive loading button">Creando juego...</button>
 		</div>
 	
 {{else}}
@@ -29,59 +29,82 @@
 			
 			{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
 
-			<button class="ui tiny right labeled icon button" {{action 'newGame'}}>
+			<button class="ui tiny right positive labeled icon button" {{action 'newGame'}}>
 			  <i class="right arrow icon"></i>
 			  Nuevo Juego
 			</button>			
 
 		{{else}}
 			<div class="quiz" style="text-align: center;">
-				
-			<h2>{{currentQuestion.category.name}}</h2>
-			<label>{{currentQuestion.title}}</label>
+			
+			<h2 class="ui icon header" style="display: block; padding: 0 15px;">
+			  <div class="content" >
+			    <span >{{currentQuestion.category.name}}</span>
+			    <div class="sub header" >{{currentQuestion.title}}</div>
+			  </div>
+			</h2>
+
 			{{#if currentAnswer.value}}
-				<ul>
+				<ul class="ui link items">
 				{{#each candidateAnwers as |answer|}}
-					<li>
-					  <img src="{{match.candidate.avatar.url}}">
-					  {{answer.candidate.name}}
-					  {{#if answer.value}}
-					  <div>
-					    <label>Respuesta</label>
-					    {{answer.response}}
-					  </div> 
-					  <div>
-					    <label>Justificacion</label>
-					    {{answer.comment}}
-					  </div>
-					  {{else}}
-						  <div>
-						    <label>El candidato no respondio</label>
-						  </div>
-						  {{#if answer.dummy}}        
-							  <div>
-							    <label>Presunta respuesta</label>
-							    {{answer.dummy}}
-							  </div>        
-						  {{/if}}
-					  {{/if}}
+					<li class="item">
+					<div class="ui tiny image">
+					   <img src="{{match.candidate.avatar.url}}">
+					 </div>
+					 <div class="content">
+					   <div class="header">{{answer.candidate.name}}</div>
+					   <div class="description">
+					     <p>
+				     	  {{#if answer.value}}
+				     	  <div>
+				     	    <label>Respuesta</label>
+				     	    {{answer.response}}
+				     	  </div> 
+				     	  <div>
+				     	    <label>Justificacion</label>
+				     	    {{answer.comment}}
+				     	  </div>
+				     	  {{else}}
+				     		  <div>
+				     		    <label>El candidato no respondio</label>
+				     		  </div>
+				     		  {{#if answer.dummy}}        
+				     			  <div>
+				     			    <label>Presunta respuesta</label>
+				     			    {{answer.dummy}}
+				     			  </div>        
+				     		  {{/if}}
+				     	  {{/if}}
+					     </p>
+					   </div>
+					 </div>
+					  
+					  
 					</li>
 				{{/each}}
 				</ul>
 				<div class="ui divider"></div>
 				<div>
-					<ul>
+					<ul class="ui items">
 					{{#each matchs as |match|}}
-						<li>
-						  <img src="{{match.candidate.avatar.url}}" width="32px">
-						  {{match.candidate.name}} 
-						  {{match.percent}}%
+						<li class="item">
+						  <div class="ui tiny circular image" style="
+    height: 80px;
+">
+						     <img src="{{match.candidate.avatar.url}}" >
+						   </div>
+						  <div class="content">
+						    <div class="header">{{match.candidate.name}}</div>
+						    <div class="description">
+						  		{{match.percent}}%
+					  		</div>
+					  	   </div>
 						 </li>
 					{{/each}}
 					</ul>
 				</div>
 				<div class="ui divider"></div>
-				<button class="ui tiny right labeled icon button" {{action 'next'}}>
+				<button class="ui tiny right positive labeled icon button" {{action 'next'}}>
 				  <i class="right arrow icon"></i>
 				  Siguiente Pregunta
 				</button>
@@ -93,11 +116,15 @@
 	{{else}}
 		<div class="start" style="text-align: center;">
 			
-			<h2 class="ui center aligned icon header" style="background: #f9f9f9;">
-			  <i class="circular users icon"></i>
+			<img src="/assets/images/logosolo.png" width="150" height="150" alt="" style="
+    margin-top: 35px;
+">
+			<h2 class="ui center aligned icon header">
 			  Decision 2017
 			</h2>
-			<button class="ui tiny right labeled icon button" {{action 'newGame'}}>
+			<p style="padding: 0 4em;">Descubrí qué candidatos a la Presidencia y la Asamblea representan <br> mejor
+tus intereses respondiendo 10 preguntas</p>
+			<button class="ui tiny right labeled positive icon button" {{action 'newGame'}}>
 			  <i class="right arrow icon"></i>
 			  Nuevo Juego
 			</button>
