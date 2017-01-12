@@ -1,2 +1,11 @@
-<button {{action 'yes'}} class="ui green tiny button">Si</button>
-<button {{action 'no'}} class="ui red tiny button">No</button>
+{{#if yesSelected}}
+	<button {{action 'yes'}} class="ui olive tiny button">Si</button>
+{{else}}
+	<button {{action 'yes'}} class="ui green tiny button">Si</button>
+{{/if}}
+
+{{#if noSelected}}
+	<button {{action 'no'}} class="ui orange tiny button">No</button>
+{{else}}
+	<button {{action 'no'}} class="ui red tiny button">No</button>
+{{/if}}
