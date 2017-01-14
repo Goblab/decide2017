@@ -1,28 +1,43 @@
-{{#burger-menu animation="scale-down" itemAnimation="stack" as |burger|}}
+{{#burger-menu animation="push" itemAnimation="push" position="right" as |burger|}}
   {{#burger.menu itemTagName="li" as |menu|}}
     <a {{action burger.state.actions.close}} class="off-canvas-close fa fa-close"></a>
- 
+    <h2><img src="/assets/images/logo.png" width="200px" alt=""></h2>
     <ul class="ui secondary vertical pointing menu">
       {{#menu.item}}
-        {{#link-to 'index'}}Juego{{/link-to}}
+        {{#link-to 'index'}}
+          <i class="fa fa-send"></i>
+          Juego
+          {{/link-to}}
       {{/menu.item}}
       {{#menu.item}}
-        {{#link-to 'candidates'}}Candidatos{{/link-to}}
+        {{#link-to 'candidates'}}
+          <i class="fa fa-user"></i>
+          Candidatos
+          {{/link-to}}
       {{/menu.item}}
       {{#menu.item}}
-        {{#link-to 'alliances'}}Alianzas{{/link-to}}
+        {{#link-to 'alliances'}}
+          <i class="fa fa-users"></i>
+          Alianzas
+          {{/link-to}}
       {{/menu.item}}
       {{#if session.isAuthenticated}}
         {{#menu.item}}
-          {{#link-to 'admin'}}Administrador{{/link-to}}
+          {{#link-to 'admin'}}
+          <i class="fa fa-cog"></i>
+          Administrador{{/link-to}}
         {{/menu.item}}
       
         {{#menu.item}}
-          <a {{action 'invalidateSession'}}>Logout</a>
+          <a {{action 'invalidateSession'}}>
+          <i class="fa fa-unlock-alt"></i>
+          Logout</a>
         {{/menu.item}}
       {{else}}
         {{#menu.item}}
-          {{#link-to 'login'}}Login{{/link-to}}
+          {{#link-to 'login'}}
+          <i class="fa fa-lock"></i>
+          Login{{/link-to}}
         {{/menu.item}}
       {{/if}}
     </ul>
@@ -31,14 +46,17 @@
   {{/burger.menu}}
  
   {{#burger.outlet}}
-    <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
-    <a href="" class="logo">
-      <img src="/assets/images/logo.png" width="200px" alt="">
-    </a>
-    <div class="ui container" style="padding: 0;background: rgba(255, 255, 255, 0.92);height: auto;width: 86vw;margin: 70px 5vw 0 5vw;border-radius: 10px;max-width: 900px;min-height: 80vh;z-index: 1;position: relative;">
-      <div class="segment" style="
-    padding: 1em;
-">
+    <nav class="main-nav">
+      <div href="" class="logo">
+        <img src="/assets/images/logo.png" width="200px" alt="">
+      </div>
+
+      <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
+
+    </nav>
+   
+    <div class="ui main-container container">
+      <div class="segment">
       {{outlet}}
       </div>
     </div>

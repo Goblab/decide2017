@@ -7,7 +7,11 @@ body {
 .login {
 	max-width: 350px;
 	margin: 0 auto;
-	padding-top: 20%;
+	padding-top: 10%;
+
+	label {
+		color: #fff !important;
+	}
 }
 
 .login > .grid {
