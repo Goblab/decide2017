@@ -1,0 +1,38 @@
+.main-nav {
+    position: fixed;
+    top: 0;
+    height: 65px;
+    background: #fff;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+
+.off-canvas {
+    position: fixed;
+    top: 17px;
+    font-size: 35px;
+    right: 30px;
+    color: #E01B21;
+    cursor: pointer;
+
+    &-close {
+        position: fixed;
+        color: #E01B21;
+        left: 276px;
+        top: 10px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+}
+
+.logo {
+    position: fixed;
+        top: 15px;
+        left: 15px;
+}
+
+.ui.vertical.menu {
+    width: 100%;
+}

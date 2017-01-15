@@ -13,11 +13,12 @@
 
 // Modules
 @import 'modules/relation-percent';
-//@import "modules/main-container";
-//@import "modules/sidebar";
+@import "modules/main-container";
+@import "modules/main-nav";
 
 // Components
 @import "components/yes-no";
+@import "components/sidebar";
 
 //@import "components/scroll-top";
 

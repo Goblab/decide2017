@@ -47,12 +47,10 @@
  
   {{#burger.outlet}}
     <nav class="main-nav">
-      <div href="" class="logo">
-        <img src="/assets/images/logo.png" width="200px" alt="">
-      </div>
-
+      {{#link-to 'index' class="logo"}}
+        <img src="/assets/images/logo.png" width="200px" alt="Decide 2017">
+      {{/link-to}}
       <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
-
     </nav>
    
     <div class="ui main-container container">

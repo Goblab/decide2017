@@ -1,146 +1,137 @@
 {{yield}}
 
-
 {{#if creating}}
 	<div class="start" style="text-align: center;">
-			<div class="start-logo" style="text-align: center;">
-			<img src="/assets/images/logovertical.png" width="150" alt="">
-			</div>
-			<button class="ui tiny positive loading button">Creando juego...</button>
+		<div class="start-logo" style="text-align: center;">
+		<img src="/assets/images/logovertical.png" width="150" alt="">
 		</div>
-	
+		<button class="ui tiny inverted loading button">Creando juego...</button>
+	</div>
 {{else}}
 	{{#if guest}}
 		{{#if isFinish}}
-			Lista de candidatos
-			<div class="matchs">
-				<ul>
-				{{#each matchs as |match|}}
-					<li>
-					   <img src="{{match.candidate.avatar.url}}" width="32">
-					  {{match.candidate.name}} 
-					  {{match.percent}}
-					 </li>
-				{{/each}}
-				</ul>
+			<div class="quiz-results">
+				<h2 class="header">Lista de candidatos</h2>
+				<div class="matchs">
+					<ul>
+					{{#each matchs as |match|}}
+						<li>
+						   <img src="{{match.candidate.avatar.url}}" width="32">
+						  {{match.candidate.name}} 
+						  {{match.percent}}
+						 </li>
+					{{/each}}
+					</ul>
+				</div>
+				
+				{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
+				<button class="ui tiny right positive labeled icon button" {{action 'newGame'}}>
+				  <i class="right arrow icon"></i>
+				  Nuevo Juego
+				</button>			
 			</div>
-			
-			{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
-
-			<button class="ui tiny right positive labeled icon button" {{action 'newGame'}}>
-			  <i class="right arrow icon"></i>
-			  Nuevo Juego
-			</button>			
-
 		{{else}}
 			<div class="quiz">
+				<h2 class="ui icon header">
+				  <div class="content" >
+				    <span>{{currentQuestion.category.name}}</span>
+				    <div class="sub header">{{currentQuestion.title}}</div>
+				  </div>
+				</h2>
+
+				{{#if currentAnswer.value}}
+					<div class="ui divider" style="margin-bottom: 0"></div>
+					<div class="next-question">
+					<button class="ui tiny right positive labeled icon button" {{action 'next'}}>
+					  <i class="right arrow icon"></i>
+					  Siguiente Pregunta</button>
+					</div>
+					<ul class="ui link items" style="margin: 0;">
+					{{#each candidateAnwers as |answer|}}
+						<li class="item">
+						<div class="ui tiny image">
+						   <img src="{{match.candidate.avatar.url}}">
+						 </div>
+						 <div class="content">
+						   <div class="header">{{answer.candidate.name}}</div>
+						   <div class="description">
+						     <p>
+					     	  {{#if answer.value}}
+					     	  <div>
+					     	    <label>Respuesta</label>
+					     	    {{answer.response}}
+					     	  </div> 
+					     	  <div>
+					     	    <label>Justificacion</label>
+					     	    {{answer.comment}}
+					     	  </div>
+					     	  {{else}}
+					     		  <div>
+					     		    <label>El candidato no respondio</label>
+					     		  </div>
+					     		  {{#if answer.dummy}}        
+					     			  <div>
+					     			    <label>Presunta respuesta</label>
+					     			    {{answer.dummy}}
+					     			  </div>        
+					     		  {{/if}}
+					     	  {{/if}}
+						     </p>
+						   </div>
+						 </div>
+						</li>
+					{{/each}}
+					</ul>
+				{{else}}
+					<div class="ui divider" style="margin-bottom: 0;"></div>
+					<div class="yes-no">
+						{{yes-no answer=currentAnswer onSelect=(action 'responsed')}}
+					</div>
+				{{/if}}
+
+				<div class="ui divider" style="margin-top: 0;"></div>
 			
-			<h2 class="ui icon header">
-			  <div class="content" >
-			    <span>{{currentQuestion.category.name}}</span>
-			    <div class="sub header">{{currentQuestion.title}}</div>
-			  </div>
-			</h2>
-
-			{{#if currentAnswer.value}}
-				<button class="ui tiny right positive labeled icon button" {{action 'next'}}>
-				  <i class="right arrow icon"></i>
-				  Siguiente Pregunta
-				</button>
-				<ul class="ui link items">
-				{{#each candidateAnwers as |answer|}}
-					<li class="item">
-					<div class="ui tiny image">
-					   <img src="{{match.candidate.avatar.url}}">
-					 </div>
-					 <div class="content">
-					   <div class="header">{{answer.candidate.name}}</div>
-					   <div class="description">
-					     <p>
-				     	  {{#if answer.value}}
-				     	  <div>
-				     	    <label>Respuesta</label>
-				     	    {{answer.response}}
-				     	  </div> 
-				     	  <div>
-				     	    <label>Justificacion</label>
-				     	    {{answer.comment}}
-				     	  </div>
-				     	  {{else}}
-				     		  <div>
-				     		    <label>El candidato no respondio</label>
-				     		  </div>
-				     		  {{#if answer.dummy}}        
-				     			  <div>
-				     			    <label>Presunta respuesta</label>
-				     			    {{answer.dummy}}
-				     			  </div>        
-				     		  {{/if}}
-				     	  {{/if}}
-					     </p>
-					   </div>
-					 </div>
-					  
-					  
-					</li>
-				{{/each}}
-				</ul>
-				
-				
-			{{else}}
-				<div class="yes-no">
-					{{yes-no answer=currentAnswer onSelect=(action 'responsed')}}
-				</div>
-			{{/if}}
-			<div class="ui divider"></div>
-			
-			<div class="relation-percent">
-				<table class="ui very basic collapsing celled table" style="    width: 100%;   padding: 15px;">
-				  <thead>
-				    <tr><th>Candidato</th>
-				    <th>Relación</th>
-				  </tr></thead>
-				  <tbody>
-				    
-				    
-				 
-
-				{{#each matchs as |match|}}
-				<tr>
-				      <td>
-				        <h4 class="ui image header">
-				          <img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
-				          <div class="content">
-				            {{match.candidate.name}}
-				            <div class="sub header">{{match.candidate.alliance.name}}
-				          </div>
-				        </div>
-				      </h4></td>
-				      <td>
-				        {{match.percent}}%
-				      </td>
-				    </tr>
-				{{/each}}
-				  </tbody>
-				</table>
-
+				<div class="relation-percent">
+					<table class="ui very basic collapsing celled table">
+					  <thead>
+					    <tr>
+					    	<th width="75%">Candidato</th>
+					    	<th width="25%">Relación</th>
+					  	</tr>	
+					  </thead>
+					  <tbody>
+						{{#each matchs as |match|}}
+						<tr>
+					      <td>
+					        <h4 class="ui image header">
+					        	<img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
+					        	<div class="content">
+					            {{match.candidate.name}}
+					            <div class="sub header">{{match.candidate.alliance.name}}</div>
+				        		</div>
+					      	</h4>
+					      	</td>
+					      <td>
+					        {{match.percent}}%
+					      </td>
+					    </tr>
+						{{/each}}
+					  </tbody>
+					</table>
 				</div>
 			</div>
-
 		{{/if}}
 	{{else}}
 		<div class="start">
 			<div class="start-logo">
 				<img src="/assets/images/logovertical.png" width="150" alt="">
 			</div>
-
-			<button class="ui tiny right labeled positive icon button" {{action 'newGame'}}>
+			<button class="ui tiny right labeled inverted icon button" {{action 'newGame'}}>
 			  <i class="right arrow icon"></i>
-			  Nuevo Juego
+			  Comenzar Juego
 			</button>
 			<p>Descubrí qué candidatos a la Presidencia y la Asamblea representan mejor
 tus intereses respondiendo 10 preguntas.</p>
 		</div>
 	{{/if}}
-
 {{/if}}
