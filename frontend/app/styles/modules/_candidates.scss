@@ -12,6 +12,7 @@
 	&-list {
 		float: left;
 		width: 100%;
+		font-family: $font-sans !important;
 
 		.item {
 			float: left;
@@ -29,6 +30,8 @@
 			/* display: inline-block; */
 			overflow: hidden;
 			position: absolute;
+			border-radius: 50px;
+		    border: 1px solid #ddd;
 
 			img {
 				height: 100px;
@@ -45,6 +48,8 @@
 
 		.header {
 			position: relative;
+			margin: 0 0 5px 0;
+			font-weight: 800;
 		}
 
 		.description {
@@ -63,6 +68,8 @@
 
 .candidate-view {
 	padding: 0;
+	border-radius: 6px;
+	overflow: hidden;
 
 	.meta {
 		position: relative;
@@ -72,10 +79,20 @@
 		border-bottom: 1px solid #ddd;
 		background: #f9f9f9;
 		padding: 15px 15px 15px 225px;
+	    font-family: $font-sans !important;
 
 		@include media($tablet) {
-		    //padding: 75px 15px 15px 15px;
+		    margin: 0;
+		    padding: 0;
 		}
+
+
+		@include media($mobile) {
+		    padding-top: 60px;
+		    text-align: center;
+		}
+
+
 
 		.candidate-image {
 			height: 190px;
@@ -86,6 +103,14 @@
 			top: 15px;
 			left: 15px;
 
+			@include media($tablet) {
+			    position: relative;
+			}
+
+			@include media($mobile) {
+			    left: 0;
+			}
+
 			img {
 				height: 250px;
 			}
@@ -95,10 +120,20 @@
 			position: absolute;
 			right: 15px;
 			top: 15px;
+			-webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+			-moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+			transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
 
 			@include media($tablet) {
 			    //top: -60px;
 			}
+
+			@include media($mobile) {
+			    left: 0;
+			    right: 0;
+			    text-align: center;
+			}
+
 		}
 
 		.bio {
@@ -111,19 +146,24 @@
 			padding: 15px;
 			float: left;
 			width: 100%;
+
+			@include media($tablet) {
+			    margin: 15px 0 0 0;
+			}
 		}
 	}
 
 	h2 {
-
+		font-weight: 800;
+		margin: 0 0 5px 0;
 	}
 
 	h3 {
-
+		
 	}
 
 	span {
-		color: #999
+		color: #333;
 	}
 
 }

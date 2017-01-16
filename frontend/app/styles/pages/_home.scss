@@ -1,4 +1,6 @@
 
+
+
 .start {
     text-align: center;
     display: block;
@@ -14,6 +16,19 @@
         font-family: $font-sans;
         padding: 1em 3em;
         font-size: 21px;
+
+        @include media($mobile) {
+            padding: 1em;
+        }
+    }
+
+    .start-options {
+        max-width: 300px;
+        margin: 0 auto;
+
+        button {
+            margin: 15px 0 0 0;
+        }
     }
 }
 
@@ -60,6 +75,13 @@
     }
 }
 
+
+.alliances {
+    .item {
+        border-bottom: 1px solid #ddd !important;
+        padding: 10px 0 !important;
+    }
+}
 
 
 .facebook-share-button {

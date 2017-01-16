@@ -22,11 +22,8 @@
 						       {{match.candidate.name}}
 						       <div class="sub header">{{match.candidate.alliance.name}}</div>
 						       </div>
-						       <div class="value" style="
-    float: right;
-    font-size: 40px;
-    margin: 15px 0 0 0;
-">
+						       <div class="value" style="float: right; font-size: 40px;
+    margin: 15px 0 0 0;">
 						       	{{match.percent}}%
 						       </div>
 						   </div>
@@ -141,18 +138,20 @@
 			<div class="start-logo">
 				<img src="/assets/images/logovertical.png" width="150" alt="">
 			</div>
-		      {{ember-selectize
-		        content=positions
-		        optionLabelPath="content.name"
-		        selection=position
-		        placeholder="Selecciona un Cargo"
-		      }}
-		    {{#if position}}
-			<button class="ui tiny right labeled inverted icon button" {{action 'newGame'}}>
-			  <i class="right arrow icon"></i>
-			  Comenzar Juego
-			</button>
+			<div class="start-options">
+			      {{ember-selectize
+			        content=positions
+			        optionLabelPath="content.name"
+			        selection=position
+			        placeholder="Selecciona un Cargo"
+			      }}
+			    {{#if position}}
+				<button class="ui tiny right labeled fluid inverted icon button" {{action 'newGame'}}>
+				  <i class="right arrow icon"></i>
+				  Comenzar Juego
+				</button>
 			{{/if}}
+			</div>
 			<p>Descubrí qué candidatos a la Presidencia y la Asamblea representan mejor
 			tus intereses respondiendo 10 preguntas.</p>
 		</div>
