@@ -1,10 +1,23 @@
 <h2 class="ui header dividing -flex">
     Listado de Candidatos
-    <div class="actions">{{link-to "Crear nuevo Candidato" "admin.candidates.new" classNames="ui orange button tiny" }}</div>
+
+    <div class="actions">
+      {{ember-selectize
+        content=model.alliances
+        optionLabelPath="content.name"
+        selection=alliance
+        placeholder="Selecciona una Alianza" }}        
+       <a {{action 'filter'}} class="ui orange button tiny">Buscar</a>
+
+    {{link-to "Crear nuevo Candidato" "admin.candidates.new" classNames="ui orange button tiny" }}
+
+    </div>
 </h2>
 
 
-{{#if model.length}}
+
+
+{{#if candidates.length}}
  <div class="section-content ">
   <table class="ui celled striped table">
   <thead>
@@ -12,10 +25,11 @@
       <th>Nombre</th>
       <th>Partido</th>
       <th>Cargo</th>
+      <th>Acciones</th>
     </tr>
   </thead>
     <tbody>
-      {{#each model as |candidate|}}
+      {{#each candidates as |candidate|}}
       <tr>
         <td class="collapsing">
            {{candidate.name}}
@@ -30,7 +44,6 @@
       {{/each}}
     </tbody>
   </table>
-  {{infinity-loader infinityModel=model}}
 </div>
 {{else}}
   <div class="loading">
