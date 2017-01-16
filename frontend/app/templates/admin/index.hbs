@@ -1,11 +1,27 @@
+<div class="admin">
+	
 <ul>
-<li>{{#link-to 'admin.users'}}Usuarios{{/link-to}}</li>
-<li>{{#link-to 'admin.alliances'}}Alianzas{{/link-to}}</li>
-<li>{{#link-to 'admin.positions'}}Cargos{{/link-to}}</li>
-<li>{{#link-to 'admin.categories'}}Categorias{{/link-to}}</li>
-<li>{{#link-to 'admin.questions'}}Preguntas{{/link-to}}</li>
-<li>{{#link-to 'admin.candidates'}}candidatos{{/link-to}}</li>
+<li>
+	{{#link-to 'admin.users'}}Usuarios{{/link-to}}
+</li>
+<li>
+	{{#link-to 'admin.alliances'}}Alianzas{{/link-to}}
+</li>
+<li>
+	{{#link-to 'admin.positions'}}Cargos{{/link-to}}
+</li>
+<li>
+	{{#link-to 'admin.categories'}}Categorias{{/link-to}}
+</li>
+<li>
+	{{#link-to 'admin.questions'}}Preguntas{{/link-to}}
+</li>
+<li>
+	{{#link-to 'admin.candidates'}}candidatos{{/link-to}}
+</li>
 </ul>
 
-<input class="input-file scan-app-magia" type="file" id="file">
-<a {{action 'process'}} class="scan-app-process">Cargar data</a>
+<input class="input-file scan-app-magia" type="file" id="file" style="color: #333;">
+<a {{action 'process'}} class="ui button primary scan-app-process">Cargar data</a>
+
+</div>
