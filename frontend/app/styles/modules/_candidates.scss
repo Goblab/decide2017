@@ -1,0 +1,162 @@
+.candidates,
+.candidate-view {
+	float: left;
+	width: 100%;
+	background: #fff;
+	border-radius: 6px;
+}
+
+.candidates {
+	padding: 15px;
+
+	&-list {
+		float: left;
+		width: 100%;
+
+		.item {
+			float: left;
+			width: 100%;
+			padding: 0.5em 0;
+			border-bottom: 1px solid #ddd;
+			margin: 5px 0;
+			position: relative;
+			min-height: 110px;
+		}
+
+		.image {
+			height: 82px;
+			margin: 0;
+			/* display: inline-block; */
+			overflow: hidden;
+			position: absolute;
+
+			img {
+				height: 100px;
+			}
+		}
+
+
+		.content {
+			position: relative;
+			display: block;
+			margin: 10px 0 0 92px;
+			float: left;
+		}
+
+		.header {
+			position: relative;
+		}
+
+		.description {
+			position: relative;
+		}
+
+		.action {
+			position: relative;
+			float: right;
+		}
+
+
+	}
+
+}
+
+.candidate-view {
+	padding: 0;
+
+	.meta {
+		position: relative;
+		float: left;
+		min-height: 230px;
+		width: 100%;
+		border-bottom: 1px solid #ddd;
+		background: #f9f9f9;
+		padding: 15px;
+
+		.candidate-image {
+			height: 190px;
+			margin: 0;
+			/* display: inline-block; */
+			overflow: hidden;
+			position: absolute;
+
+			img {
+				height: 250px;
+			}
+		}
+
+		.content {
+			padding: 15px;
+			float: left;
+			margin: 15px 0 0 200px;
+		}
+	}
+
+	h2 {
+
+	}
+
+	h3 {
+
+	}
+
+	span {
+		color: #999
+	}
+
+}
+
+.candidate-answers {
+	float: left;
+	padding: 15px;
+	width: 100%;
+
+	.item {
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #ddd;
+		padding: 15px 0;
+
+		span {
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 14px;
+			font-family: $font-sans;
+
+		}
+
+		h2 {
+			margin: 9px 0;
+			font-weight: 100;
+			font-size: 25px;
+			font-family: $font-sans;
+		}
+
+		.item-answer,
+		.item-comment,
+		.item-none,
+		.item-dummy {
+			font-family: $font-sans;
+			font-size: 20px;
+			padding: 0.2em 0;
+		}
+
+		.item-answer {
+			position: relative;
+		}
+
+		.item-comment {
+			position: relative;
+		}
+
+		.item-none {
+			position: relative;
+		}
+
+		.item-dummy {
+			position: relative;
+		}
+
+	}
+
+}

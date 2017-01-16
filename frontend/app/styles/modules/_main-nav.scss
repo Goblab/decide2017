@@ -6,6 +6,34 @@
     left: 0;
     right: 0;
     z-index: 99;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav-menu {
+    float: right;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 15px 0 0;
+    -webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    -moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    top: 0;
+
+    @include media($tablet) {
+        top: -60px;
+    }
+
+    a {
+        margin: 0 15px;
+        font-weight: 600;
+        font-family: 'Alegreya Sans';
+
+        .fa {
+            margin: 0 15px;
+        }
+    }
 }
 
 
@@ -13,9 +41,17 @@
     position: fixed;
     top: 17px;
     font-size: 35px;
-    right: 30px;
+    right: -30px;
     color: #E01B21;
     cursor: pointer;
+    -webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    -moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+
+    @include media($tablet) {
+        right: 30px;
+    }
+
 
     &-close {
         position: fixed;
