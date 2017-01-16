@@ -100,7 +100,7 @@ module.exports = {
 
 	    	cm = cm.reverse();
 	    	
-	    	cm = _.slice(cm, 0, end);
+	    	cm = cm.slice(0, end);
 
 	    	_.each(cm, function (c) {
 	    		candidates.push(c);
