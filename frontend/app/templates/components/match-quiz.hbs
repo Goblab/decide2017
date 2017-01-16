@@ -16,14 +16,20 @@
 					<ul>
 					{{#each matchs as |match|}}
 						<li>
-						   <h4 class="ui image header">
+						   <div class="ui image candidate-results header">
 						       <img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
 						       <div class="content">
 						       {{match.candidate.name}}
 						       <div class="sub header">{{match.candidate.alliance.name}}</div>
-						       {{match.percent}}%
 						       </div>
-						   </h4>
+						       <div class="value" style="
+    float: right;
+    font-size: 40px;
+    margin: 15px 0 0 0;
+">
+						       	{{match.percent}}%
+						       </div>
+						   </div>
 						 </li>
 					{{/each}}
 					</ul>

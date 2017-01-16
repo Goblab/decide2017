@@ -86,30 +86,43 @@
     }
 
     .matchs {
-        
+        position: relative;
 
         ul {
-
+position: relative;
         }
 
         li {
+            margin: 15px 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            float: left;
+            width: 100%;
+        }
 
+        .candidate-results {
+            float: left;
+            width: 100%;
         }
 
         .header {
-
+position: relative;
         }
 
         .image {
-
+position: relative;
         }
         
         .content {
-
+position: relative;
         }
 
         .sub {
+position: relative;
+        }
 
+        .value {
+            position: relative;
         }
         
     }
