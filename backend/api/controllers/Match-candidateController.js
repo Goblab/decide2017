@@ -90,9 +90,16 @@ module.exports = {
 	    			}
 	    		}
 		  	}); 
+	    	var end = cm.length;
+	    	if (end > 15) {
+	    		end = 15:
+	    	}
 
+	    	var cm = _.sortBy(candidatesMatchs, 'percent');
+	    	cm = _.reverse(cm);
+	    	cm = _.slice(cm, 0, end);
 
-			res.ok({"match-candidate": {id: pk, candidates: candidates, matchs: candidatesMatchs}});
+			res.ok({"match-candidate": {id: pk, candidates: candidates, matchs: cm}});
 	    });
 	  });
 	}, 	

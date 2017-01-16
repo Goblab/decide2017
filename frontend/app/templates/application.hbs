@@ -10,15 +10,18 @@
           {{/link-to}}
       {{/menu.item}}
       {{#menu.item}}
-        {{#link-to 'candidates'}}
+        {{#link-to 'candidates.presidents'}}
           <i class="fa fa-user"></i>
           Presidencia
           {{/link-to}}
       {{/menu.item}}
       {{#menu.item}}
-          <a><i class="fa fa-user"></i>
+      {{#link-to 'candidates.assemblymen'}}
+
+          <i class="fa fa-user"></i>
           Asambleistas
-          </a>
+        {{/link-to}}
+
       {{/menu.item}}      
       {{#menu.item}}
         {{#link-to 'alliances'}}
@@ -60,13 +63,14 @@
         <i class="fa fa-send"></i>
         Juego
         {{/link-to}}
-        {{#link-to 'candidates'}}
+        {{#link-to 'candidates.presidents'}}
         <i class="fa fa-user"></i>
         Presidencia
         {{/link-to}}
-        <a disable="disable"><i class="fa fa-user"></i>
-          Asambleistas
-        </a>
+        {{#link-to 'candidates.assemblymen'}}
+        <i class="fa fa-user"></i>
+        Asambleistas Nacionales
+        {{/link-to}}
         {{#link-to 'alliances'}}
         <i class="fa fa-users"></i>
         Alianzas

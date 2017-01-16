@@ -1,0 +1,28 @@
+<div class="candidates">
+	<h2 class="ui header dividing -flex">
+	    Presidencia
+	 </h2>
+	<div class="candidates-list">
+		{{#each model as |candidate|}}
+			<div class="item"> 
+				<div class="image">
+				  <img src="{{candidate.avatar.url}}">
+				</div>
+				<div class="content">
+					<h2 class="header">
+						{{candidate.name}} 
+					</h2>
+					<div class="description">
+						<p>{{candidate.alliance.name}}</p>
+					</div>
+				</div>
+				<div class="action">
+					{{#link-to "candidates.view" candidate.id class="ui tiny button inverted red"}} 
+						Ver candidato
+					{{/link-to}}
+				</div>
+			</div>
+		{{/each}}
+
+	</div>
+</div>

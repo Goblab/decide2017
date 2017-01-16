@@ -4,16 +4,17 @@ import InfinityRoute from "ember-infinity/mixins/route";
 
 
 export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
-
-  perPageParam: 'limit',
+  
+  perPageParam: "limit",     
+  pageParam: "skip",               
   totalPagesParam: "meta.total",
 
-  offset: Ember.computed('currentPage', '_perPage', function() {
-    return this.get('currentPage') * this.get('_perPage');
-  }),
+  skip_page: function () {
+    return this.get("currentPage") * this.get('_perPage');
+  }.property('currentPage'),
 
-  model() {
-    return this.infinityModel('candidate', { limit: 20, skip: this.get('offset') });
+  model: function () {
+    return this.infinityModel('candidate', { perPage: 20, startingPage: 1 }, { skip: "skip_page"});
   },
 
   actions: {

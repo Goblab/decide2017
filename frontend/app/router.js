@@ -11,6 +11,9 @@ Router.map(function() {
   this.route('login');
 
   this.route("candidates", function() {
+    this.route('presidents');
+    this.route('assemblymen');
+    
     this.route("view", {     
       path: ":candidate_id/view"
     });
