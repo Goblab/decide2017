@@ -15,13 +15,13 @@ module.exports = {
 
 	resetAnwers: function (req, res) {
 		
-		Answer.destroy().exec(function (err, ok) {
+		Answer.destroy({position: 1}).exec(function (err, ok) {
 			
 		});
-		Candidate.destroy().exec(function (err, ok) {
+		Candidate.destroy({position: 1}).exec(function (err, ok) {
 			
 		});
-		Guest.destroy().exec(function (err, ok) {
+		Guest.destroy({position: 1}).exec(function (err, ok) {
 			
 		});
 

@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import InfinityRoute from "ember-infinity/mixins/route";
 
 
-export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
+export default Ember.Route.extend(InfinityRoute, {
   
   perPageParam: "limit",     
   pageParam: "skip",               
@@ -14,7 +14,7 @@ export default Ember.Route.extend(InfinityRoute, AuthenticatedRouteMixin, {
   }.property('currentPage'),
 
   model: function () {
-    return this.infinityModel('candidate', { perPage: 20, startingPage: 1 }, { skip: "skip_page"});
+    return this.infinityModel('candidate', {perPage: 20, startingPage: 1, position: 1}, { skip: "skip_page"});
   },
 
   actions: {
