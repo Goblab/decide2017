@@ -92,14 +92,14 @@ module.exports = {
 
 	    	var end = cm.length;
 	    	if (end > 15) {
-	    		end = 15:
+	    		end = 15;
 	    	}
 
 	    	var cm = _.sortBy(candidatesMatchs, 'percent');
 
 	    	cm = _.reverse(cm);
 	    	
-	    	cm = _.slice(cm, 0, 15);
+	    	cm = _.slice(cm, 0, end);
 
 	    	_.each(cm, function (c) {
 	    		candidates.push(c);
