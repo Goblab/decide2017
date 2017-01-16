@@ -57,6 +57,7 @@ module.exports = {
 	    if ( err ) return res.serverError( err );
 	    if ( !matchingRecord ) return res.notFound( 'No record found with the specified `id`.' );
 
+	    console.log(matchingRecord.position);
 	    var candidatesAnswerQuery = Answer.find().where({position: matchingRecord.position, isGuest: false}).exec(function found(err, matchingRecords) {
 
 	    	var guestResponseTotal = 0;

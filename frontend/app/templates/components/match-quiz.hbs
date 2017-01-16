@@ -140,12 +140,20 @@
 			<div class="start-logo">
 				<img src="/assets/images/logovertical.png" width="150" alt="">
 			</div>
+		      {{ember-selectize
+		        content=positions
+		        optionLabelPath="content.name"
+		        selection=position
+		        placeholder="Selecciona un Cargo"
+		      }}
+		    {{#if position}}
 			<button class="ui tiny right labeled inverted icon button" {{action 'newGame'}}>
 			  <i class="right arrow icon"></i>
 			  Comenzar Juego
 			</button>
+			{{/if}}
 			<p>Descubrí qué candidatos a la Presidencia y la Asamblea representan mejor
-tus intereses respondiendo 10 preguntas.</p>
+			tus intereses respondiendo 10 preguntas.</p>
 		</div>
 	{{/if}}
 {{/if}}
