@@ -103,7 +103,7 @@ module.exports = {
 	    	cm = cm.slice(0, end);
 
 	    	_.each(cm, function (c) {
-	    		candidates.push(c);
+	    		candidates.push(c.id);
 	    	});
 
 			res.ok({"match-candidate": {id: pk, candidates: candidates, matchs: cm}});
