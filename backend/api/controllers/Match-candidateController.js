@@ -97,8 +97,8 @@ module.exports = {
 	    	if (end > 15) {
 	    		end = 15;
 	    	}
-	    	
-	    	cm = _.reverse(cm);
+
+	    	cm = cm.reverse();
 	    	
 	    	cm = _.slice(cm, 0, end);
 
