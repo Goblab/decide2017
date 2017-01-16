@@ -1,32 +1,38 @@
-<h2>{{model.candidate.name}}</h2>
-<h3>{{model.candidate.position.name}}</h3>
-<span>{{model.candidate.alliance.name}}</span>
+<div class="candidate-view">
+<div class="meta">
+	{{#if model.candidate.avatar.url}}
+	<div class="candidate-image">
+		<img src="{{model.candidate.avatar.url}}"/>
+	</div>
+	{{/if}}
 
-{{#if model.candidate.avatar.url}}
-<div style="display:block; float: right">
-	<img src="{{model.candidate.avatar.url}}"/>
+	<div class="content">
+		<h2>{{model.candidate.name}}</h2>
+		<h3>{{model.candidate.position.name}}</h3>
+		<span>{{model.candidate.alliance.name}}</span>
+	</div>
 </div>
-{{/if}}
-<ul>
+
+<ul class="candidate-answers">
 	{{#each model.answers as |answer|}}
-		<li>
-		  <h2>{{answer.question.category.name}}</h2> 
-		  <span>{{answer.question.title}}</span> 
+		<li class="item">
+		  <span>{{answer.question.category.name}}</span> 
+		  <h2>{{answer.question.title}}</h2> 
 		  {{#if answer.value}}
-		  <div>
+		  <div class="item-answer">
 		    <label>Respuesta</label>
 		    {{answer.value}}
 		  </div> 
-		  <div>
+		  <div class="item-comment">
 		    <label>Justificacion</label>
 		    {{answer.comment}}
 		  </div>
 		  {{else}}
-			  <div>
+			  <div class="item-none">
 			    <label>El candidato no respondio</label>
 			  </div>
 			  {{#if answer.dummy}}        
-				  <div>
+				  <div class="item-dummy">
 				    <label>Presunta respuesta</label>
 				    {{answer.dummy}}
 				  </div>        
@@ -35,3 +41,4 @@
 		</li>
 	{{/each}}
 </ul>
+</div>

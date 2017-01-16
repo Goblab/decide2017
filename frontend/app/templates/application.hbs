@@ -50,6 +50,20 @@
       {{#link-to 'index' class="logo"}}
         <img src="/assets/images/logo.png" width="200px" alt="Decide 2017">
       {{/link-to}}
+      <div class="nav-menu">
+        {{#link-to 'index'}}
+        <i class="fa fa-send"></i>
+        Juego
+        {{/link-to}}
+        {{#link-to 'candidates'}}
+        <i class="fa fa-user"></i>
+        Candidatos
+        {{/link-to}}
+        {{#link-to 'alliances'}}
+        <i class="fa fa-users"></i>
+        Alianzas
+        {{/link-to}}
+      </div>
       <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
     </nav>
    

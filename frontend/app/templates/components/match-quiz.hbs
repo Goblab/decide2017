@@ -11,23 +11,31 @@
 	{{#if guest}}
 		{{#if isFinish}}
 			<div class="quiz-results">
-				<h2 class="header">Lista de candidatos</h2>
+				<h2 class="header">Porcentaje de relación</h2>
 				<div class="matchs">
 					<ul>
 					{{#each matchs as |match|}}
 						<li>
-						   <img src="{{match.candidate.avatar.url}}" width="32">
-						  {{match.candidate.name}} 
-						  {{match.percent}}
+						   <h4 class="ui image header">
+						       <img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
+						       <div class="content">
+						       {{match.candidate.name}}
+						       <div class="sub header">{{match.candidate.alliance.name}}</div>
+						       {{match.percent}}%
+						       </div>
+						   </h4>
 						 </li>
 					{{/each}}
 					</ul>
 				</div>
-				
+
+				<div class="ui divider"></div>
+
 				{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
-				<button class="ui tiny right positive labeled icon button" {{action 'newGame'}}>
-				  <i class="right arrow icon"></i>
+
+				<button class="ui tiny right positive labeled icon button" style="float: right;" {{action 'newGame'}}>
 				  Nuevo Juego
+				  <i class="right arrow icon"></i>
 				</button>			
 			</div>
 		{{else}}

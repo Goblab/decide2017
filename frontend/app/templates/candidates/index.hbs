@@ -1,26 +1,27 @@
-<h2 class="ui header dividing -flex">
-    Candidatos
- </h2>
-
-<ul  class="ui link items">
-	{{#each model as |candidate|}}
-		<li class="item"> 
-		<div class="ui tiny circular image" style="
-    height: 80px;
-">
-		  <img src="{{candidate.avatar.url}}" style="
-    position: relative;
-    top: -10px;
-">
-		</div>
-			<div class="content">
-			  <div class="header">{{#link-to "candidates.view" candidate.id}} 
-				{{candidate.name}} 
-			{{/link-to}}</div>
-			  <div class="description">
-			    <p>{{candidate.alliance.name}}</p>
-			  </div>
+<div class="candidates">
+	<h2 class="ui header dividing -flex">
+	    Candidatos
+	 </h2>
+	<div class="candidates-list">
+		{{#each model as |candidate|}}
+			<div class="item"> 
+				<div class="image">
+				  <img src="{{candidate.avatar.url}}">
+				</div>
+				<div class="content">
+					<h2 class="header">
+						{{candidate.name}} 
+					</h2>
+					<div class="description">
+						<p>{{candidate.alliance.name}}</p>
+					</div>
+				</div>
+				<div class="action">
+					{{#link-to "candidates.view" candidate.id class="ui tiny button inverted red"}} 
+						Ver candidato
+					{{/link-to}}
+				</div>
 			</div>
-		</li>
-	{{/each}}
-</ul>
+		{{/each}}
+	</div>
+</div>
