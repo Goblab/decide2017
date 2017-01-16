@@ -12,9 +12,14 @@
       {{#menu.item}}
         {{#link-to 'candidates'}}
           <i class="fa fa-user"></i>
-          Candidatos
+          Presidencia
           {{/link-to}}
       {{/menu.item}}
+      {{#menu.item}}
+          <a><i class="fa fa-user"></i>
+          Asambleistas
+          </a>
+      {{/menu.item}}      
       {{#menu.item}}
         {{#link-to 'alliances'}}
           <i class="fa fa-users"></i>
@@ -57,8 +62,11 @@
         {{/link-to}}
         {{#link-to 'candidates'}}
         <i class="fa fa-user"></i>
-        Candidatos
+        Presidencia
         {{/link-to}}
+        <a disable="disable"><i class="fa fa-user"></i>
+          Asambleistas
+        </a>
         {{#link-to 'alliances'}}
         <i class="fa fa-users"></i>
         Alianzas
