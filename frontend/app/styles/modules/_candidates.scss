@@ -71,7 +71,11 @@
 		width: 100%;
 		border-bottom: 1px solid #ddd;
 		background: #f9f9f9;
-		padding: 15px;
+		padding: 15px 15px 15px 225px;
+
+		@include media($tablet) {
+		    //padding: 75px 15px 15px 15px;
+		}
 
 		.candidate-image {
 			height: 190px;
@@ -79,16 +83,34 @@
 			/* display: inline-block; */
 			overflow: hidden;
 			position: absolute;
+			top: 15px;
+			left: 15px;
 
 			img {
 				height: 250px;
 			}
 		}
 
+		.social {
+			position: absolute;
+			right: 15px;
+			top: 15px;
+
+			@include media($tablet) {
+			    //top: -60px;
+			}
+		}
+
+		.bio {
+			position: relative;
+			padding: 15px;
+			color: #333;
+		}
+
 		.content {
 			padding: 15px;
 			float: left;
-			margin: 15px 0 0 200px;
+			width: 100%;
 		}
 	}
 
