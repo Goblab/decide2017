@@ -74,7 +74,6 @@ module.exports = {
 	    		if (picked.length < 1) {
 	    			picked = {id: answer.candidate, candidate: answer.candidate, points: 0, percent: 0, responsed: 0};
 	    			candidatesMatchs.push(picked);
-	    			candidates.push(answer.candidate);
 	    		} else {
 	    			picked = picked[0];
 	    		}
@@ -90,14 +89,21 @@ module.exports = {
 	    			}
 	    		}
 		  	}); 
+
 	    	var end = cm.length;
 	    	if (end > 15) {
 	    		end = 15:
 	    	}
 
 	    	var cm = _.sortBy(candidatesMatchs, 'percent');
+
 	    	cm = _.reverse(cm);
-	    	cm = _.slice(cm, 0, end);
+	    	
+	    	cm = _.slice(cm, 0, 15);
+
+	    	_.each(cm, function (c) {
+	    		candidates.push(c);
+	    	});
 
 			res.ok({"match-candidate": {id: pk, candidates: candidates, matchs: cm}});
 	    });

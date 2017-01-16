@@ -1,3 +1,11 @@
 <div class="match-quiz">
-	{{match-quiz questions=model.questions position=model.positions.firstObject}}
+      {{ember-selectize
+        content=model.positions
+        optionLabelPath="content.name"
+        selection=model.position
+        placeholder="Selecciona un Cargo" }}
+     
+     {{#if model.position}}	
+		{{match-quiz questions=model.questions position=model.positions.firstObject}}
+	 {{/if}}
 </div>
