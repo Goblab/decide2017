@@ -1,7 +1,7 @@
 {{#burger-menu animation="push" itemAnimation="push" position="right" as |burger|}}
   {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
     <a {{action burger.state.actions.close}} class="off-canvas-close fa fa-close"></a>
-    <h2><img src="/assets/images/logo.png" width="200px" alt=""></h2>
+    <h2><img src="/assets/images/logo-decide-2017.png" width="200px" alt=""></h2>
     <ul class="ui secondary vertical pointing menu">
       {{#menu.item}}
         {{#link-to 'index'}}
@@ -56,11 +56,11 @@
   {{#burger.outlet}}
     <nav class="main-nav">
       {{#link-to 'index' class="logo"}}
-        <img src="/assets/images/logo.png" width="200px" alt="Decide 2017">
+        <img src="/assets/images/logo-decide-2017.png" width="200px" alt="Decide 2017">
       {{/link-to}}
       <div class="nav-menu">
         {{#link-to 'index'}}
-        <i class="fa fa-send"></i>
+        <i class="fa fa-bullseye"></i>
         Juego
         {{/link-to}}
         {{#link-to 'candidates.presidents'}}
