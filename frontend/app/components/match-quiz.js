@@ -11,6 +11,7 @@ export default Ember.Component.extend({
 	answers: [],
 	isFinish: false,
 	matchs: [],
+	questionsResponsed: [],
 	creating: false,
 
 	currentQuestion: Ember.computed('currentQuestionIndex', 'questions', function () {
@@ -35,6 +36,7 @@ export default Ember.Component.extend({
 			this.set('creating', true);
 			this.set('isFinish', false);
 			this.set('matchs', []);
+			this.set('questionsResponsed', []);
 
 			var store = this.get('store');
 			var manager = this.get('manager');
@@ -60,6 +62,7 @@ export default Ember.Component.extend({
 
 			this.set('guest', guest);
 			this.set('answers', answers);
+			
 			guest.save().then(function () {
 	 		    var promises = Ember.A();
  				answers.forEach(function (answer) {
@@ -78,6 +81,16 @@ export default Ember.Component.extend({
 		responsed: function () {
 			var _this = this;
 			var matchs = [];
+
+			var questionsResponsed = this.get('questionsResponsed');
+
+			questionsResponsed.push(Ember.Object.create({
+				id: this.get('currentQuestion').get('id').toString(),
+				question: this.get('currentQuestion'),
+				value: this.get('currentAnswer').get('value')		
+			}));
+
+		
 			this.get('currentAnswer').save().then(function () {
 				_this.get('store').find('match-candidate', _this.get('guest').get('id')).then(function (match) {
 					match.get('candidates').forEach(function (candidate) {
@@ -86,11 +99,25 @@ export default Ember.Component.extend({
 							if (match.candidate == candidate.get('id')) {
 								mm = match;
 							}				
-						})
+						});
+
+						mm.answers.forEach(function (answer) {
+							var question = _this.get('questionsResponsed').findBy('id', answer.question.toString());
+							if (question && answer.question == question.get('id')) {						
+								answer.question = question.get('question');
+								answer.guestValue = question.get('value');
+								if (answer.value && answer.value.toString() == question.get('value').toString()) {
+									answer.success = "Si";
+								} else {
+									answer.success = "No";
+								}
+							}
+						});
 						matchs.push(Ember.Object.create({
 							candidate: candidate,
 							percent: mm.percent,
-							points: mm.points
+							points: mm.points,
+							answers: mm.answers
 						}));
 					});
 					_this.set('matchs', matchs.sortBy('percent').reverse());
