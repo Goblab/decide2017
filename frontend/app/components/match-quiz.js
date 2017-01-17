@@ -63,7 +63,7 @@ export default Ember.Component.extend({
 			this.set('guest', guest);
 			this.set('answers', answers);
 			
-			guest.save().then(function () {
+			guest.save().then(function (guest) {
 	 		    var promises = Ember.A();
  				answers.forEach(function (answer) {
 				 	promises.push(answer.save());
@@ -72,8 +72,10 @@ export default Ember.Component.extend({
 			    Ember.RSVP.Promise.all(promises).then(function(resolvedPromises){       
 			    	_this.set('creating', false);
 			    });    
+				manager.set('guest', guest.get('id'));
+				manager.set('currentQuestionIndex', 0);
+				manager.save();
 			});
-
 
 			this.set('currentQuestionIndex', 0);
 		},
@@ -90,7 +92,6 @@ export default Ember.Component.extend({
 				value: this.get('currentAnswer').get('value')		
 			}));
 
-		
 			this.get('currentAnswer').save().then(function () {
 				_this.get('store').find('match-candidate', _this.get('guest').get('id')).then(function (match) {
 					match.get('candidates').forEach(function (candidate) {
@@ -134,9 +135,87 @@ export default Ember.Component.extend({
 			var manager = this.get('manager');
 			if (this.get('hasNextStep')) {
 				this.set('currentQuestionIndex', this.get('currentQuestionIndex') + 1);
+				manager.get('currentQuestionIndex', this.get('currentQuestionIndex'));
+
+				if (this.get('currentAnswer').get('value')) {
+					this.send('next');
+				} else {
+					manager.save();
+				}
 			} else {
+				manager.save();
 				this.set('isFinish', true);
 			}
 		},
-	}
+	},
+
+
+	didInsertElement: function () {
+		var manager = this.get('manager');
+		var store = this.get('store');
+		var _this = this;
+		var matchs = [];
+
+		if (manager.get('guest')) {
+			this.set('creating', true);
+
+			
+			store.find('guest', manager.get('guest')).then(function (guest) {
+				guest.get('answers').then(function(answers) {
+					var questionsResponsed = _this.get('questionsResponsed');
+
+					answers.forEach(function (answer){
+						if (answer.get('value')) {						
+							questionsResponsed.push(Ember.Object.create({
+								id: answer.get('question').get('id').toString(),
+								question: answer.get('question'),
+								value: answer.get('value')		
+							}));
+						}
+					});
+					
+
+					_this.set('guest', guest)
+					_this.set('answers', answers);
+					_this.set('currentQuestionIndex', parseInt(manager.get('currentQuestionIndex')));
+					_this.set('creating', false);
+
+					_this.get('store').find('match-candidate', _this.get('guest').get('id')).then(function (match) {
+						match.get('candidates').forEach(function (candidate) {
+							var mm = {};
+							match.get('matchs').forEach(function (match) {
+								if (match.candidate == candidate.get('id')) {
+									mm = match;
+								}				
+							});
+
+							mm.answers.forEach(function (answer) {
+								var question = _this.get('questionsResponsed').findBy('id', answer.question.toString());
+								if (question && answer.question == question.get('id')) {						
+									answer.question = question.get('question');
+									answer.guestValue = question.get('value');
+									if (answer.value && answer.value.toString() == question.get('value').toString()) {
+										answer.success = "Si";
+									} else {
+										answer.success = "No";
+									}
+								}
+							});
+							matchs.push(Ember.Object.create({
+								candidate: candidate,
+								percent: mm.percent,
+								points: mm.points,
+								answers: mm.answers
+							}));
+						});
+						_this.set('matchs', matchs.sortBy('percent').reverse());
+						
+						if (_this.get('currentAnswer').get('value')) {
+							_this.send('next');	
+						}
+					});					
+				});
+			});
+		}
+	},
 });
