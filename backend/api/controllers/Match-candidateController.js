@@ -73,12 +73,14 @@ module.exports = {
 		    	var guestAnswer = _.filter(matchingRecord.answers, {question: answer.question});
 
 	    		if (picked.length < 1) {
-	    			picked = {id: answer.candidate, candidate: answer.candidate, points: 0, percent: 0, responsed: 0};
+	    			picked = {id: answer.candidate, candidate: answer.candidate, points: 0, percent: 0, responsed: 0, anwers: []};
 	    			candidatesMatchs.push(picked);
 	    		} else {
 	    			picked = picked[0];
 	    		}
 
+	    		picked.answers.push(answer);
+	    		
 	    		if (answer.value && parseInt(answer.value) > 0) {
 	    			picked.responsed++;
 	    			if (guestAnswer[0]) {

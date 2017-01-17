@@ -33,12 +33,14 @@ export default Ember.Component.extend({
 
 		newGame: function () {
 			this.set('creating', true);
+			this.set('isFinish', false);
+			this.set('matchs', []);
 
 			var store = this.get('store');
 			var manager = this.get('manager');
 
 			var position = this.get('position');
-			var answers = this.get('answers');
+			var answers = [];
 
 			var guest = store.createRecord('guest', {
 				position: position,
@@ -57,7 +59,7 @@ export default Ember.Component.extend({
 			});
 
 			this.set('guest', guest);
-
+			this.set('answers', answers);
 			guest.save().then(function () {
 	 		    var promises = Ember.A();
  				answers.forEach(function (answer) {
@@ -92,6 +94,7 @@ export default Ember.Component.extend({
 						}));
 					});
 					_this.set('matchs', matchs.sortBy('percent').reverse());
+					_this.send('next');
 				});
 			});
 			//this.send('next');

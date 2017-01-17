@@ -53,46 +53,8 @@
 				{{#if currentAnswer.value}}
 					<div class="ui divider" style="margin-bottom: 0"></div>
 					<div class="next-question">
-					<button class="ui tiny right positive labeled icon button" {{action 'next'}}>
-					  <i class="right arrow icon"></i>
-					  Siguiente Pregunta</button>
+					<button class="ui tiny inverted loading button">Creando juego...</button>
 					</div>
-					<ul class="ui link items" style="margin: 0;">
-					{{#each candidateAnwers as |answer|}}
-						<li class="item">
-						<div class="ui tiny image">
-						   <img src="{{match.candidate.avatar.url}}">
-						 </div>
-						 <div class="content">
-						   <div class="header">{{answer.candidate.name}}</div>
-						   <div class="description">
-						     <p>
-					     	  {{#if answer.value}}
-					     	  <div>
-					     	    <label>Respuesta</label>
-					     	    {{answer.response}}
-					     	  </div> 
-					     	  <div>
-					     	    <label>Justificacion</label>
-					     	    {{answer.comment}}
-					     	  </div>
-					     	  {{else}}
-					     		  <div>
-					     		    <label>El candidato no respondio</label>
-					     		  </div>
-					     		  {{#if answer.dummy}}        
-					     			  <div>
-					     			    <label>Presunta respuesta</label>
-					     			    {{answer.dummy}}
-					     			  </div>        
-					     		  {{/if}}
-					     	  {{/if}}
-						     </p>
-						   </div>
-						 </div>
-						</li>
-					{{/each}}
-					</ul>
 				{{else}}
 					<div class="ui divider" style="margin-bottom: 0;"></div>
 					<div class="yes-no">
