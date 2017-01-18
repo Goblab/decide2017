@@ -88,7 +88,11 @@
 
 
   <div class="field">
-    <input class="ui button" type="submit" value="Guardar">
+    {{#if loading}}
+      <a class="ui button">Guardando...</a>
+    {{else}}
+      <input class="ui button" type="submit" value="Guardar">
+    {{/if}} 
   </div>
 </form>
 </div>
