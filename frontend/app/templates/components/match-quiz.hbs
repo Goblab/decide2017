@@ -11,7 +11,7 @@
 	{{#if guest}}
 		{{#if isFinish}}
 			<div class="quiz-results">
-				<h2 class="header">Porcentaje de relación</h2>
+				<h2 class="header" style="text-align: center;font-weight: 600;background: #f9f9f9;border-radius: 6px 6px 0 0;margin-bottom: 15px;padding: 15px 0;">Porcentaje de relación</h2>
 				<div class="matchs">
 					<ul>
 					{{#each matchs as |match|}}
@@ -34,9 +34,15 @@
 							       		<li class="item success-{{aw.success}}">
 							       		<span>{{aw.question.category.name}}</span>
 							       		<h2>{{aw.question.title}}</h2>
-							       		{{aw.comment}}
-							       		{{aw.guestValue}}
-							       		{{aw.value}}
+							       		<div class="comment">
+							       			{{aw.comment}}
+							       		</div>
+							       		<div class="answer-value answer-{{aw.guestValue}}-{{aw.value}}">
+								       		<span class="guest-value">{{aw.guestValue}}</span>
+								       		<span class="guest-value">
+								       			{{aw.value}}
+								       		</span>
+							       		</div>
 							       		</li> 
 							       	{{/each}}
 							       </ul>

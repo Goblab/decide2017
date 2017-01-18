@@ -127,18 +127,26 @@
 .quiz-results {
     background: #fff;
     border-radius: 6px;
-    padding: 1em 2em;
+    padding: 0;
+
+    span {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        font-family: "Alegreya Sans", sans-serif;
+    }
 
     h2 {
         font-family: $font-sans;
         padding: 10px 0;
-        margin: 9px 0;
+        margin: 0;
         font-weight: 100;
         font-size: 25px;
     }
 
     .matchs {
         position: relative;
+        padding: 0 2em;
 
         .accordion{
             width: 100%;
@@ -150,7 +158,7 @@ position: relative;
 
         li {
             margin: 15px 0;
-            border-bottom: 1px solid #ddd;
+            //border-bottom: 1px solid #ddd;
             padding-bottom: 10px;
             float: left;
             width: 100%;
@@ -184,12 +192,15 @@ position: relative;
     }
 
     .success {
+
         &-true {
-            background: green;
+            border: 1px solid #16ab39;
+            padding: 1em;
         }
 
         &-false {
-            background: red;
+            border: 1px solid #e24b31;
+            padding: 1em;
         }
     }
 
