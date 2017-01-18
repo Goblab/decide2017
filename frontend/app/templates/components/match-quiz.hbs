@@ -27,6 +27,9 @@
 							       <div class="value" style="float: right; font-size: 40px; margin: 15px 0 0 0;">
 							       	{{match.percent}}%
 							       </div>
+							       <button class="ui mini button inverted red" style="float: right; margin: 13px 15px 0 0;">
+							       	Ver respuestas
+							       </button>
 							   </div>
 							   <div class="content">
 							       <ul class="candidate-answers-result">
@@ -54,13 +57,16 @@
 					{{/each}}
 					</ul>
 				</div>
+				
+				<div class="end-quiz">
+					
+					{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
 
-				{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
-
-				<button class="ui tiny right positive labeled icon button" style="float: right;" {{action 'resetGame'}}>
-				  Nuevo Juego
-				  <i class="right arrow icon"></i>
-				</button>			
+					<button class="ui tiny right positive labeled icon button" style="float: right;" {{action 'resetGame'}}>
+					  Nuevo Juego
+					  <i class="right arrow icon"></i>
+					</button>			
+				</div>
 			</div>
 		{{else}}
 			<div class="quiz">
