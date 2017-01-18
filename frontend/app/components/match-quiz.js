@@ -138,7 +138,7 @@ export default Ember.Component.extend({
 								answer.question = question.get('question');
 								answer.guestValue = question.get('value');
 								answer.guestValueString = question.get('value') == 1 ? 'si' : 'no';
-								answer.valueString = answer.value == 1 ? 'si' : ( answer.value == 2 ? 'no' : 'no-respondio');
+								answer.valueString = answer.value == 1 ? 'si' : ( answer.value == 2 ? 'no' : 'no respondio');
 
 								if (!answer.value) {
 									answer.notResponsed = true;
@@ -235,7 +235,7 @@ export default Ember.Component.extend({
 									answer.question = question.get('question');
 									answer.guestValue = question.get('value');
 									answer.guestValueString = question.get('value') == 1 ? 'si' : 'no';
-									answer.valueString = answer.value == 1 ? 'si' : ( answer.value == 2 ? 'no' : 'no-respondio');
+									answer.valueString = answer.value == 1 ? 'si' : ( answer.value == 2 ? 'no' : 'no respondio');
 									if (!answer.value) {
 										answer.notResponsed = true;
 									}
