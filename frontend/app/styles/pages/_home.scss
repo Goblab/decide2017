@@ -122,12 +122,15 @@
     }
 }
 
-
+.end-quiz {
+    padding: 0 15px;
+    //border-top: 1px solid #ddd;
+}
 
 .quiz-results {
     background: #fff;
     border-radius: 6px;
-    padding: 0;
+    padding: 0 0 15px 0;
 
     span {
         text-transform: uppercase;
