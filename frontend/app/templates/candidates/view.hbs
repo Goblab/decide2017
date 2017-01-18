@@ -38,7 +38,7 @@
 		  </div> 
 		  <div class="item-comment">
 		    <label style="font-weight: 600;margin: 5px 0;display: block;">Justificación</label>
-		    {{answer.comment}}
+		    <p>{{answer.comment}}</p>
 		  </div>
 		  {{else}}
 			  <div class="item-none">
@@ -47,7 +47,7 @@
 			  {{#if answer.dummy}}        
 				  <div class="item-dummy">
 				    <label>Presunta respuesta</label>
-				    {{answer.dummy}}
+				    <p>{{answer.dummy}}</p>
 				  </div>        
 			  {{/if}}
 		  {{/if}}
