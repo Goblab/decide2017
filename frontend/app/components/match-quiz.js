@@ -20,7 +20,15 @@ export default Ember.Component.extend({
 
 
 	currentAnswer: Ember.computed('currentQuestionIndex', 'answers', function () {
-		return this.get('answers').objectAt(this.get('currentQuestionIndex'));
+		var aw = null;
+		var _this = this;
+		this.get('answers').forEach(function (answer) {
+			if (answer.get('question').get('id') == _this.get('currentQuestion').get('id')) {
+				aw = answer;
+			}
+		});
+
+		return aw;
 	}),
 
 
@@ -31,6 +39,16 @@ export default Ember.Component.extend({
 
 
 	actions: {
+
+		resetGame: function () {
+			this.set('isFinish', false);
+			this.set('matchs', []);
+			this.set('questionsResponsed', []);
+			this.set('guest', null);
+			this.get('manager').set('guest', null);
+			this.get('manager').save();			
+		},
+
 
 		newGame: function () {
 			this.set('creating', true);
@@ -75,14 +93,15 @@ export default Ember.Component.extend({
 				manager.set('guest', guest.get('id'));
 				manager.set('currentQuestionIndex', 0);
 				manager.save();
+				_this.set('currentQuestionIndex', 0);
 			});
 
-			this.set('currentQuestionIndex', 0);
 		},
 
 		responsed: function () {
 			var _this = this;
 			var matchs = [];
+			var manager = this.get('manager');
 
 			var questionsResponsed = this.get('questionsResponsed');
 
@@ -122,6 +141,9 @@ export default Ember.Component.extend({
 						}));
 					});
 					_this.set('matchs', matchs.sortBy('percent').reverse());
+					manager.set('currentQuestionIndex', _this.get('currentQuestionIndex'));
+					manager.save();
+
 					_this.send('next');
 				});
 			});
@@ -135,13 +157,6 @@ export default Ember.Component.extend({
 			var manager = this.get('manager');
 			if (this.get('hasNextStep')) {
 				this.set('currentQuestionIndex', this.get('currentQuestionIndex') + 1);
-				manager.get('currentQuestionIndex', this.get('currentQuestionIndex'));
-
-				if (this.get('currentAnswer').get('value')) {
-					this.send('next');
-				} else {
-					manager.save();
-				}
 			} else {
 				manager.save();
 				this.set('isFinish', true);
@@ -178,7 +193,8 @@ export default Ember.Component.extend({
 					_this.set('guest', guest)
 					_this.set('answers', answers);
 					_this.set('currentQuestionIndex', parseInt(manager.get('currentQuestionIndex')));
-					_this.set('creating', false);
+					_this.set('creating', false);					
+
 
 					_this.get('store').find('match-candidate', _this.get('guest').get('id')).then(function (match) {
 						match.get('candidates').forEach(function (candidate) {
@@ -208,11 +224,12 @@ export default Ember.Component.extend({
 								answers: mm.answers
 							}));
 						});
+
 						_this.set('matchs', matchs.sortBy('percent').reverse());
 						
 						if (_this.get('currentAnswer').get('value')) {
-							_this.send('next');	
-						}
+							_this.send('next');
+						} 
 					});					
 				});
 			});
