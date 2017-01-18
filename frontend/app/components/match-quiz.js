@@ -105,6 +105,7 @@ export default Ember.Component.extend({
 
 			var questionsResponsed = this.get('questionsResponsed');
 
+
 			questionsResponsed.push(Ember.Object.create({
 				id: this.get('currentQuestion').get('id').toString(),
 				question: this.get('currentQuestion'),
@@ -139,8 +140,11 @@ export default Ember.Component.extend({
 							points: mm.points,
 							answers: mm.answers
 						}));
+
 					});
-					_this.set('matchs', matchs.sortBy('percent').reverse());
+					_this.set('matchs', []);
+					_this.set('matchs', matchs);
+										
 					manager.set('currentQuestionIndex', _this.get('currentQuestionIndex'));
 					manager.save();
 
