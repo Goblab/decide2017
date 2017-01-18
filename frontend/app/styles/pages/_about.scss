@@ -1,0 +1,30 @@
+.about {
+	background: #fff;
+	padding: 1em 2em;
+	max-width: 900px;
+	margin: 0 auto;
+
+	.contact-data {
+		float: left;
+		width: 100%;
+	}
+
+	.contact-column {
+		width: 33%;
+		float: left;
+		text-align: center;
+		color: #333;
+
+		.fa {
+			display: block;
+			font-size: 40px;
+			margin-bottom: 15px;
+		}
+
+		p {
+			margin: 15px 0;
+			font-size: 16px;
+		}
+	}
+}
+

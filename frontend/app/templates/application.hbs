@@ -27,6 +27,18 @@
           Partidos
           {{/link-to}}
       {{/menu.item}}
+      {{#menu.item}}
+        {{#link-to 'alliances'}}
+          <i class="fa fa-users"></i>
+          Sobre nosotros
+          {{/link-to}}
+      {{/menu.item}}
+      {{#menu.item}}
+        {{#link-to 'methodology'}}
+          <i class="fa fa-users"></i>
+          Metodología
+          {{/link-to}}
+      {{/menu.item}}
       {{#if session.isAuthenticated}}
         {{#menu.item}}
           {{#link-to 'admin'}}
@@ -58,27 +70,23 @@
       {{/link-to}}
       <div class="nav-menu">
         {{#link-to 'index'}}
-        <i class="fa fa-bullseye"></i>
         Juego
         {{/link-to}}
         {{#link-to 'candidates.presidents'}}
-        <i class="fa fa-user"></i>
         Presidencia
         {{/link-to}}
         {{#link-to 'candidates.assemblymen'}}
-        <i class="fa fa-user"></i>
         Asambleistas Nacionales
         {{/link-to}}
         {{#link-to 'alliances'}}
-        <i class="fa fa-users"></i>
         Partidos
         {{/link-to}}
-        <a >
-          Sobre nosotros
-        </a>
-        <a >
-          Metodología
-        </a>
+        {{#link-to 'about'}}
+        Sobre nosotros
+        {{/link-to}}
+        {{#link-to 'methodology'}}
+        Metodología
+        {{/link-to}}
       </div>
       <div class="nav-social">
         <a class="ui circular tiny facebook icon button">
