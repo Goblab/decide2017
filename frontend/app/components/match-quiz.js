@@ -22,6 +22,10 @@ export default Ember.Component.extend({
 		return this.get('currentQuestionIndex') + 1;
 	}),
 
+	currentProgress: Ember.computed('currentQuestionIndex', function () {
+		return this.get('currentQuestionIndex') * 10;
+	}),
+
 	currentAnswer: Ember.computed('currentQuestionIndex', 'answers', function () {
 		var aw = null;
 		var _this = this;
