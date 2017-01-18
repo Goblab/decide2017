@@ -2,16 +2,10 @@ import Ember from 'ember';
 import InfinityRoute from "ember-infinity/mixins/route";
 
 
-export default Ember.Route.extend(InfinityRoute, {
-  perPageParam: 'limit',
-  totalPagesParam: "meta.total",
-
-  offset: Ember.computed('currentPage', '_perPage', function() {
-    return this.get('currentPage') * this.get('_perPage');
-  }),
+export default Ember.Route.extend({
 
   model() {
-    return this.infinityModel('candidate', { limit: 10, skip: this.get('offset'), position: 1, sort: "name DESC"});
+    return this.get('store').query('candidate', { position: 1, sort: "name DESC"});
   },
 
   actions: {
