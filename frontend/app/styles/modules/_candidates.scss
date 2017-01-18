@@ -228,11 +228,45 @@
 
 		.item-dummy {
 			position: relative;
-			p {
-				color: #FBBD08;
-			}
+
 		}
 
 	}
 
+}
+
+.comment-textual {
+	color: #16ab39;
+}
+
+.comment-oficial {
+	color: #333;
+}
+
+.comment-interpretada {
+	color: #FBBD08;
+}
+
+.comment-no-responde {
+	color: #e24b31;
+}
+
+.color-textual {
+	background: #16ab39 !important;
+	color: #fff !important;
+}
+
+.color-oficial {
+	background: #333 !important;
+	color: #fff !important;
+}
+
+.color-interpretada {
+	background: #FBBD08 !important;
+	color: #fff !important;
+}
+
+.color-no-responde {
+	background: #e24b31 !important;
+	color: #fff !important;
 }

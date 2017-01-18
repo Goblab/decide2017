@@ -27,6 +27,21 @@
 </div>
 
 <ul class="candidate-answers">
+	<div class="answer-reference" style="text-align: center;background: #f9f9f9;padding: 15px 0;">
+		<b style="font-weight: 600">Tipos de respuesta:</b>
+		<a class="ui black image label">
+		  Oficial
+		</a>
+		<a class="ui red image label">
+		  No respondio
+		</a>
+		<a class="ui green image label">
+		  Textual
+		</a>
+		<a class="ui yellow image label">
+		  Interpretada
+		</a>
+	</div>
 	{{#each model.answers as |answer|}}
 		<li class="item">
 		  <span>{{answer.question.category.name}}</span> 
@@ -35,8 +50,11 @@
 		    <label>Respuesta del candidato: {{answer.response}}</label>		    
 		  </div> 
 		  <div class="item-comment">
-		    <label style="font-weight: 600;margin: 5px 0;display: block;">Justificación</label>
-		    <p class="{{answer.dummy}}">{{answer.comment}}</p>
+		    <label style="font-weight: 600;margin: 5px 0;display: block;">		Respuesta <a class="ui label color-{{answer.dummy}}" style="
+    margin: 0 15px;">
+    {{answer.dummy}}</a>
+		    </label>
+		    <p class="comment-{{answer.dummy}}">{{answer.comment}}</p>
 		  </div>
 		</li>
 	{{/each}}
