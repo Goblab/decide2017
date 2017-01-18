@@ -26,16 +26,11 @@ export default Ember.Component.extend({
     var title = this.get('data-title'),
         desc = this.get('data-desc'),
         url = window.location.href,
-        caption = this.get('data-caption');
+        caption = this.get('data-caption'),
+        image = "";
 
-	var _this = this;    
-    var image = "";
-	html2canvas($('.matchs'), {
- 		onrendered: function (canvas) {
-        	image = canvas.toDataURL("image/png");
-    		_this.postToFeed(title, desc, url, image, caption);
-     	}
- 	});			
+    		this.postToFeed(title, desc, url, image, caption);
+ 			
 
   }.on('click')
 });
