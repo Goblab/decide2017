@@ -16,7 +16,7 @@
 					<ul>
 					{{#each matchs as |match|}}
 						<li>
-							{{#ui-accordion class="styled" as |execute|}}
+							{{#ui-accordion as |execute|}}
 							   <div class="ui image candidate-results header title">
 
 							       <img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
@@ -45,8 +45,6 @@
 					</ul>
 				</div>
 
-				<div class="ui divider"></div>
-
 				{{facebook-feed data-desc="Estos son mis candidatos!" data-title="Decide 2017" data-caption="Decide 2017" class="facebook-share-button"}}
 
 				<button class="ui tiny right positive labeled icon button" style="float: right;" {{action 'resetGame'}}>
@@ -65,13 +63,16 @@
 				<div class="answer-step">
 					{{currentAnswer.question.id}} / 10
 				</div>
+				<div class="ui top attached progress">
+				  <div class="bar" style="width: 80%;"></div>
+				</div>
 				{{#if currentAnswer.value}}
 					<div class="ui divider" style="margin-bottom: 0"></div>
 					<div class="next-question">
 					<button class="ui tiny inverted loading button">Creando juego...</button>
 					</div>
 				{{else}}
-					<div class="ui divider" style="margin-bottom: 0;"></div>
+					<div class="ui divider" style="margin: 0;"></div>
 					<div class="yes-no">
 						{{yes-no answer=currentAnswer onSelect=(action 'responsed')}}
 					</div>

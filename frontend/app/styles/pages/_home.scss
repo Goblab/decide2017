@@ -38,7 +38,7 @@
 .answer-step {
     font-family: $font-sans;
     font-weight: 600;
-    padding-top: 15px;
+    padding: 15px 0;
     color: #333;
     font-size: 17px;
 }
@@ -63,6 +63,10 @@
         width: 100%;
         //min-height: 77vh;
         height: auto;
+
+        .progress .bar {
+            background: #16ab39;
+        }
 
         h2 {
             text-align: center !important;
@@ -130,11 +134,15 @@
         font-weight: 400;
         border-bottom: 1px solid #ddd;
         padding: 10px 0;
-        margin-bottom: 25px;
+        margin-bottom: 0;
     }
 
     .matchs {
         position: relative;
+
+        .accordion{
+            width: 100%;
+        }
 
         ul {
 position: relative;
