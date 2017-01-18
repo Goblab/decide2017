@@ -9,6 +9,9 @@ export default Ember.Mixin.create({
       var model = this.currentModel;
       var answers = this.currentModel.answers;
 
+
+      this.get('controller').set('loading', true);
+      
       if (this.get('modelPath')) {
         model = model[this.get('modelPath')]
       }
