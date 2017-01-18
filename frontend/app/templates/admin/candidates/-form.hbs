@@ -77,7 +77,10 @@
       </div>
       <div>
         <label>Presunta respuesta</label>
-        {{input type="text" value=answer.dummy}}
+        {{ember-selectize
+          content=model.fonts
+          selection=answer.dummy
+          placeholder="Selecciona una fuente" }}        
       </div>        
     </li>    
   {{/each}}

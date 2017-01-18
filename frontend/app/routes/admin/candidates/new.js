@@ -4,6 +4,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, SaveModelMixin, {
   modelPath: 'candidate',
+
+  fonts: ['textual', 'interpretada', 'no-responde'],
   
   model: function() {
   	return Ember.RSVP.hash({
@@ -27,7 +29,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, SaveModelMixin, {
    			});
 
    			model.answers.push(as);
-   		});  		
+   		});
+      model.fonts = this.get('fonts');  		
   	}
   },
 });
