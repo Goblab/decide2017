@@ -1,19 +1,26 @@
-<div class="candidate" style="padding: 15px; background: #fff; border-radius: 6px;">
-<h2 class="ui header dividing -flex">
-    Partidos
- </h2>
-
-<ul class="ui link items alliances">
+<div class="candidates">
+	<h2 class="ui header dividing -flex">
+		Partidos
+	</h2>
+	<div class="candidates-list">
 	{{#each model as |alliance|}}
-		<li class="item"> 
-			<div class="content">
-			  <div class="header">
-			   {{#link-to "alliances.view" alliance.id}} 
-			   	{{alliance.name}} 
-			   {{/link-to}}			
-			  </div>
+		<div class="item"> 
+			<div class="image">
+			  <img src="{{alliance.avatar.url}}">
 			</div>
-		</li>
+			<div class="content">
+				<h2 class="header">
+					{{alliance.name}} 
+				</h2>
+			</div>
+			<div class="action">
+				{{#link-to "alliances.view" alliance.id class="ui tiny button inverted red"}} 
+					Ver Partido
+				{{/link-to}}
+			</div>
+		</div>
 	{{/each}}
-</ul>
+
+	</div>
+
 </div>
