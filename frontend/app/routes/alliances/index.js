@@ -11,6 +11,6 @@ export default Ember.Route.extend({
     }
   },
   model: function() {
-    return this.store.query('alliance', {skip: 0, limit: 50});
+    return this.store.query('alliance', {sort: "name ASC"});
   }
 });
