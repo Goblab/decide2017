@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	answer: null,
 
-
 	yesSelected: Ember.computed('answer', 'answer.value', function (){
 		var answer = this.get('answer');
 		if (answer && answer.get('value') == 1) {
@@ -16,6 +15,16 @@ export default Ember.Component.extend({
 	noSelected: Ember.computed('answer.value', function () {
 		var answer = this.get('answer');
 		if (answer && answer.get('value') == 2) {
+			return true;
+		} else {
+			return false;
+		}
+	}),
+
+
+	isNotResponsed: Ember.computed('answer.value', function () {
+		var answer = this.get('answer');
+		if (answer && !answer.get('value')) {
 			return true;
 		} else {
 			return false;
@@ -35,7 +44,13 @@ export default Ember.Component.extend({
 				this.get('answer').set('value', 2);
 				this.sendAction('onSelect');
 			}		
-		}
+		},
 
+		noResponse: function () {
+			if (this.get('answer')) {
+				this.get('answer').set('value', 0);
+				this.sendAction('onSelect');
+			}		
+		}
 	}
 });

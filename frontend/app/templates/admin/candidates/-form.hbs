@@ -40,17 +40,18 @@
       {{input type="text" value=model.candidate.facebook}}
     </label>
   </div>  
-  <div class="field">
-    <label>
-      Web
-      {{input type="text" value=model.candidate.web}}
-    </label>
-  </div> 
 
   <div class="field">
     <label>
       CED
-      {{input type="text" value=model.question.ced}}
+      {{input type="text" value=model.candidate.ced}}
+    </label>
+  </div>
+
+  <div class="field">
+    <label>
+      Biografia
+      {{input type="text" value=model.candidate.bio}}
     </label>
   </div>
 
@@ -68,7 +69,7 @@
       <span>{{answer.question.title}}</span> 
       <div>
         <label>Respuesta</label>
-        {{yes-no answer=answer}}
+        {{yes-no noResponsed=true answer=answer}}
       </div> 
       <div>
         <label>Justificacion</label>

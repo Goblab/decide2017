@@ -50,6 +50,7 @@ export default Ember.Route.extend({
 			    	candidate.set('facebook', line.get('facebook'));
 			    	candidate.set('twitter', line.get('twitter'));
 			    	candidate.set('bio', line.get('bio'));
+			    	candidate.set('ced', line.get('ced'));
 			    	candidate.set('birthdate', line.get('birthdate'));
 			    	candidate.set('position', _this.currentModel.positions.findBy('id', line.get('cargo')));
 			    	candidate.set('alliance', _this.currentModel.alliances.findBy('id', line.get('partido')));

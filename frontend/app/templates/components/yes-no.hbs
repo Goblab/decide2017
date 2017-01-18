@@ -17,3 +17,15 @@
 		<i class="fa fa-close"></i>No
 	</button>
 {{/if}}
+
+{{#if noResponsed}}
+	{{#if isNotResponsed}}
+		<button {{action 'noResponse'}} class="ui black tiny button">
+			<i class="fa fa-close"></i>No Responde
+		</button>
+	{{else}}
+		<button {{action 'noResponse'}} class="ui grey tiny button">
+			<i class="fa fa-close"></i>No Responde
+		</button>
+	{{/if}}
+{{/if}}
