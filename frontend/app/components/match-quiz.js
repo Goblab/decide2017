@@ -23,7 +23,7 @@ export default Ember.Component.extend({
 	}),
 
 	currentProgress: Ember.computed('currentQuestionIndex', function () {
-		return this.get('currentQuestionIndex') * 10;
+		return (this.get('currentQuestionIndex') + 1) * 10;
 	}),
 
 	currentAnswer: Ember.computed('currentQuestionIndex', 'answers', function () {
@@ -137,6 +137,14 @@ export default Ember.Component.extend({
 							if (question && answer.question == question.get('id')) {						
 								answer.question = question.get('question');
 								answer.guestValue = question.get('value');
+								answer.guestValueString = question.get('value') == 1 ? 'si' : 'no';
+								answer.valueString = answer.value == 1 ? 'si' : ( answer.value == 2 ? 'no' : 'no-respondio');
+
+								if (!answer.value) {
+									answer.notResponsed = true;
+								}
+
+
 								if (answer.value && answer.value.toString() == question.get('value').toString()) {
 									answer.success = true;
 								} else {
@@ -226,6 +234,11 @@ export default Ember.Component.extend({
 								if (question && answer.question == question.get('id')) {						
 									answer.question = question.get('question');
 									answer.guestValue = question.get('value');
+									answer.guestValueString = question.get('value') == 1 ? 'si' : 'no';
+									answer.valueString = answer.value == 1 ? 'si' : ( answer.value == 2 ? 'no' : 'no-respondio');
+									if (!answer.value) {
+										answer.notResponsed = true;
+									}
 									if (answer.value && answer.value.toString() == question.get('value').toString()) {
 										answer.success = true;
 									} else {
