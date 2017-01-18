@@ -10,6 +10,13 @@ Router.map(function() {
   this.route('about');
   this.route('login');
 
+
+  this.route('result', function() {
+    this.route("view", {     
+      path: ":guest_id/view"
+    });
+  });
+
   this.route("candidates", function() {
     this.route('presidents');
     this.route('assemblymen');
@@ -72,9 +79,10 @@ Router.map(function() {
         this.route("edit", {
           path: ":candidate_id/edit"
         });
-      });	  
+      });   
 
   });
+  this.route('methodology');
 });
 
 export default Router;
