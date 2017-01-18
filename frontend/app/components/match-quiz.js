@@ -18,6 +18,9 @@ export default Ember.Component.extend({
 		return this.get('questions').objectAt(this.get('currentQuestionIndex'));
 	}),
 
+	currentIndex: Ember.computed('currentQuestionIndex', function () {
+		return this.get('currentQuestionIndex') + 1;
+	}),
 
 	currentAnswer: Ember.computed('currentQuestionIndex', 'answers', function () {
 		var aw = null;
@@ -166,9 +169,6 @@ export default Ember.Component.extend({
 			var manager = this.get('manager');
 			if (this.get('hasNextStep')) {
 				this.set('currentQuestionIndex', this.get('currentQuestionIndex') + 1);
-				if (this.get('currentAnswer').get('value')) {
-					this.send('next');
-				}
 			} else {
 				manager.save();
 				this.set('isFinish', true);
