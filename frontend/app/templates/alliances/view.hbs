@@ -1,9 +1,9 @@
 <div class="candidate-view" style="padding: 15px;">
-<h2>{{model.alliance.name}}</h2>
+<h2 class="alliance-heading">{{model.alliance.name}}</h2>
 
-<ul>
+<ul class="alliance-list">
 	{{#each model.candidates as |candidate|}}
-		<li>
+		<li class="alliance-item">
 		  <h2>
 		  	{{#link-to 'candidates.view' candidate.id}}
 		  		{{candidate.name}}

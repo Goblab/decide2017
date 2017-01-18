@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin: 0 15px 0 0;
+    margin: 0 120px 0 0;
     -webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
     -moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
     transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
@@ -33,6 +33,19 @@
         .fa {
             margin: 0 15px;
         }
+    }
+}
+
+.nav-social {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    -webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    -moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+
+    @include media($tablet) {
+        right: 100px;
     }
 }
 

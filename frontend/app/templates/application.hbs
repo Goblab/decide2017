@@ -26,7 +26,7 @@
       {{#menu.item}}
         {{#link-to 'alliances'}}
           <i class="fa fa-users"></i>
-          Alianzas
+          Partidos
           {{/link-to}}
       {{/menu.item}}
       {{#if session.isAuthenticated}}
@@ -73,8 +73,16 @@
         {{/link-to}}
         {{#link-to 'alliances'}}
         <i class="fa fa-users"></i>
-        Alianzas
+        Partidos
         {{/link-to}}
+      </div>
+      <div class="nav-social">
+        <a class="ui circular tiny facebook icon button">
+          <i class="facebook icon"></i>
+        </a>
+        <a class="ui circular tiny twitter icon button">
+          <i class="twitter icon"></i>
+        </a>
       </div>
       <a class="off-canvas fa fa-bars" {{action burger.state.actions.toggle}}></a>
     </nav>

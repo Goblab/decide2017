@@ -62,7 +62,9 @@
 				    <div class="sub header">{{currentQuestion.title}}</div>
 				  </div>
 				</h2>
-				{{currentAnswer.question.id}}
+				<div class="answer-step">
+					{{currentAnswer.question.id}} / 10
+				</div>
 				{{#if currentAnswer.value}}
 					<div class="ui divider" style="margin-bottom: 0"></div>
 					<div class="next-question">
@@ -75,7 +77,6 @@
 					</div>
 				{{/if}}
 
-				<div class="ui divider" style="margin-top: 0;"></div>
 				{{#if matchs}}
 				<div class="relation-percent">
 					<table class="ui very basic collapsing celled compact table">
@@ -127,8 +128,7 @@
 				</button>
 			{{/if}}
 			</div>
-			<p>Descubrí qué candidatos a la Presidencia y la Asamblea representan mejor
-			tus intereses respondiendo 10 preguntas.</p>
+			<p>Descubre qué candidatos a la Presidencia y la Asamblea Nacional representan mejor tus intereses respondiendo 10 preguntas.</p>
 		</div>
 	{{/if}}
 {{/if}}

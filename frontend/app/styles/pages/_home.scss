@@ -35,6 +35,13 @@
     }
 }
 
+.answer-step {
+    font-family: $font-sans;
+    font-weight: 600;
+    padding-top: 15px;
+    color: #333;
+    font-size: 17px;
+}
 
 .match-quiz {
     height: auto;
@@ -54,7 +61,8 @@
         text-align: center;
         float: left;
         width: 100%;
-        min-height: 77vh;
+        //min-height: 77vh;
+        height: auto;
 
         h2 {
             text-align: center !important;
@@ -81,6 +89,21 @@
 
 .alliances {
     .item {
+        border-bottom: 1px solid #ddd !important;
+        padding: 10px 0 !important;
+    }
+}
+
+.alliance-heading {
+    font-family: $font-sans;
+
+}
+
+.alliance-list {
+    font-family: $font-sans;
+
+
+    .alliance-item {
         border-bottom: 1px solid #ddd !important;
         padding: 10px 0 !important;
     }
