@@ -202,10 +202,20 @@
 			font-family: $font-sans;
 			font-size: 20px;
 			padding: 0.2em 0;
+
+			p {
+				font-size: 18px;
+			}
 		}
 
 		.item-answer {
 			position: relative;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-family: "Alegreya Sans", sans-serif;
+			label {
+				font-weight: 600;
+			}
 		}
 
 		.item-comment {
@@ -218,6 +228,9 @@
 
 		.item-dummy {
 			position: relative;
+			p {
+				color: #FBBD08;
+			}
 		}
 
 	}
