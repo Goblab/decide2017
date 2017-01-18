@@ -31,26 +31,13 @@
 		<li class="item">
 		  <span>{{answer.question.category.name}}</span> 
 		  <h2>{{answer.question.title}}</h2> 
-		  {{#if answer.value}}
 		  <div class="item-answer">
-		    <label>Respuesta del candidato: {{answer.response}}</label>
-		    
+		    <label>Respuesta del candidato: {{answer.response}}</label>		    
 		  </div> 
 		  <div class="item-comment">
 		    <label style="font-weight: 600;margin: 5px 0;display: block;">Justificación</label>
 		    {{answer.comment}}
 		  </div>
-		  {{else}}
-			  <div class="item-none">
-			    <label>El candidato no respondió</label>
-			  </div>
-			  {{#if answer.dummy}}        
-				  <div class="item-dummy">
-				    <label>Presunta respuesta</label>
-				    {{answer.dummy}}
-				  </div>        
-			  {{/if}}
-		  {{/if}}
 		</li>
 	{{/each}}
 </ul>

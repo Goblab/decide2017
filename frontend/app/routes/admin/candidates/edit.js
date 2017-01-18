@@ -3,7 +3,7 @@ import SaveModelMixin from '../../../mixins/candidates/save-model-mixin';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 export default Ember.Route.extend(SaveModelMixin, AuthenticatedRouteMixin, {
   modelPath: 'candidate',
-  fonts: ['textual', 'interpretada', 'no-responde'],
+  fonts: ['oficial','textual', 'interpretada', 'no-responde'],
 
   model: function(params) {
 	return Ember.RSVP.hash({
