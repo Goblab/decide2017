@@ -122,6 +122,26 @@
     }
 }
 
+
+.candidate-answers-result {
+    
+    .item {
+        position: relative;
+    }
+
+    .answer-value {
+        margin: 15px 0 0 0;
+        //position: absolute;
+        //top: 15px;
+        //right: 15px;
+
+        .guest-value {
+            margin: 5px 0;
+            display: block;
+        }
+    }
+}
+
 .end-quiz {
     padding: 0 15px;
     //border-top: 1px solid #ddd;
@@ -195,15 +215,38 @@ position: relative;
     }
 
     .success {
+        position: relative;
+
+        .fa {
+            font-size: 30px;
+        }
+
+        .fa::before {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
 
         &-true {
             border: 1px solid #16ab39;
             padding: 1em;
+
+            .fa {
+                color: #16ab39
+            }
         }
 
         &-false {
             border: 1px solid #e24b31;
             padding: 1em;
+
+            .fa {
+                color: #e24b31;
+            }
+
+            .fa::before {
+                content: "\f00d";
+            }
         }
     }
 
