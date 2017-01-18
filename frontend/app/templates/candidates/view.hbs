@@ -46,13 +46,8 @@
 		<li class="item">
 		  <span>{{answer.question.category.name}}</span> 
 		  <h2>{{answer.question.title}}</h2> 
-		  <div class="item-answer">
-		    <label>Respuesta del candidato: {{answer.response}}</label>		    
-		  </div> 
 		  <div class="item-comment">
-		    <label style="font-weight: 600;margin: 5px 0;display: block;">		Respuesta <a class="ui label color-{{answer.dummy}}" style="
-    margin: 0 15px;">
-    {{answer.dummy}}</a>
+		    <label style="font-weight: 600;margin: 5px 0;display: block;">		Respuesta {{answer.response}} 
 		    </label>
 		    <p class="comment-{{answer.dummy}}">{{answer.comment}}</p>
 		  </div>
