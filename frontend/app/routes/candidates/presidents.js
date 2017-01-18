@@ -11,7 +11,7 @@ export default Ember.Route.extend(InfinityRoute, {
   }),
 
   model() {
-    return this.infinityModel('candidate', { limit: 10, skip: this.get('offset'), position: 1 });
+    return this.infinityModel('candidate', { limit: 10, skip: this.get('offset'), position: 1, sort: "name DESC"});
   },
 
   actions: {

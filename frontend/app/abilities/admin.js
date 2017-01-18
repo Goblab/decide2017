@@ -5,6 +5,7 @@ export default Ability.extend({
   session: Ember.inject.service('session'),
 
   canView: Ember.computed('session.account.isAdmin', function() {
-    return this.get('session.account.isAdmin');
+  	return true;
+    //return this.get('session.account.isAdmin');
   }),
 });

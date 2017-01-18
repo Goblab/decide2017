@@ -1,7 +1,7 @@
 <div class="candidates">
 	<h2 class="ui header dividing -flex">
 	    Asambleistas
-	 </h2>
+	 </h2>	
 	<div class="candidates-list" id="candidates-list">
 		{{#each model as |candidate|}}
 			<div class="item"> 
@@ -23,7 +23,6 @@
 				</div>
 			</div>
 		{{/each}}
-
+		{{load-more infinityModel=model action='infinityLoad'}}
 	</div>
 </div>
-{{infinity-loader infinityModel=model scrollable="#candidates-list" triggerOffset=400}}

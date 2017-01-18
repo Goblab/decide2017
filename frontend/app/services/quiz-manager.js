@@ -22,5 +22,10 @@ export default Ember.Service.extend({
 	save: function () {
 		localStorage.setItem('guest', this.get('guest'));
 		localStorage.setItem('currentQuestionIndex', this.get('currentQuestionIndex'));
+	},
+
+	reset: function () {
+		localStorage.removeItem('guest');
+		localStorage.removeItem('currentQuestionIndex');
 	}
 });

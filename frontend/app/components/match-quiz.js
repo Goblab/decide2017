@@ -45,8 +45,7 @@ export default Ember.Component.extend({
 			this.set('matchs', []);
 			this.set('questionsResponsed', []);
 			this.set('guest', null);
-			this.get('manager').set('guest', null);
-			this.get('manager').save();			
+			this.get('manager').reset();			
 		},
 
 
@@ -111,11 +110,15 @@ export default Ember.Component.extend({
 				question: this.get('currentQuestion'),
 				value: this.get('currentAnswer').get('value')		
 			}));
+			_this.get('store').unloadAll('match-candidate');
 
 			this.get('currentAnswer').save().then(function () {
+
 				_this.get('store').find('match-candidate', _this.get('guest').get('id')).then(function (match) {
+
 					match.get('candidates').forEach(function (candidate) {
 						var mm = {};
+
 						match.get('matchs').forEach(function (match) {
 							if (match.candidate == candidate.get('id')) {
 								mm = match;
@@ -128,12 +131,13 @@ export default Ember.Component.extend({
 								answer.question = question.get('question');
 								answer.guestValue = question.get('value');
 								if (answer.value && answer.value.toString() == question.get('value').toString()) {
-									answer.success = "Si";
+									answer.success = true;
 								} else {
-									answer.success = "No";
+									answer.success = false;
 								}
 							}
 						});
+
 						matchs.push(Ember.Object.create({
 							candidate: candidate,
 							percent: mm.percent,
@@ -142,6 +146,7 @@ export default Ember.Component.extend({
 						}));
 
 					});
+
 					_this.set('matchs', []);
 					_this.set('matchs', matchs);
 										
@@ -161,6 +166,9 @@ export default Ember.Component.extend({
 			var manager = this.get('manager');
 			if (this.get('hasNextStep')) {
 				this.set('currentQuestionIndex', this.get('currentQuestionIndex') + 1);
+				if (this.get('currentAnswer').get('value')) {
+					this.send('next');
+				}
 			} else {
 				manager.save();
 				this.set('isFinish', true);
@@ -215,9 +223,9 @@ export default Ember.Component.extend({
 									answer.question = question.get('question');
 									answer.guestValue = question.get('value');
 									if (answer.value && answer.value.toString() == question.get('value').toString()) {
-										answer.success = "Si";
+										answer.success = true;
 									} else {
-										answer.success = "No";
+										answer.success = false;
 									}
 								}
 							});
