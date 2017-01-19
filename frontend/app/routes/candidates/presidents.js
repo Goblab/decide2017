@@ -5,7 +5,7 @@ import InfinityRoute from "ember-infinity/mixins/route";
 export default Ember.Route.extend({
 
   model() {
-    return this.get('store').query('candidate', { position: 1, sort: "name ASC"});
+    return this.get('store').query('candidate', { position: '587fb0f8460614a50761d775', sort: "name ASC"});
   },
 
   actions: {

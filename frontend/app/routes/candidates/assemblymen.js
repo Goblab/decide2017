@@ -14,7 +14,7 @@ export default Ember.Route.extend(InfinityRoute, {
 
 
   model: function () {
-    return this.infinityModel('candidate', { perPage: 20, startingPage: 1, position: 2, sort: "name ASC"}, { skip: "skip_page"});
+    return this.infinityModel('candidate', { perPage: 20, startingPage: 1, position: '587fb103460614a50761d776', sort: "name ASC"}, { skip: "skip_page"});
   },
 
   actions: {

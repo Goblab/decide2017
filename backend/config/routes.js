@@ -59,11 +59,6 @@ module.exports.routes = {
     action: 'upload'
   },
 
-  'get /resetanwers': {
-    controller: 'Asset',
-    action: 'resetAnwers'
-  },
-
   'get /assets/*': {
     controller: 'Asset',
     action: 'getFile'

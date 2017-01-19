@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'front',
     environment: environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -24,8 +24,8 @@ module.exports = function(environment) {
   };
 
   ENV['adapter'] = {
-      'fileUrl': 'http://somosfuturo.com.ar:1337/',
-      'upload': 'http://somosfuturo.com.ar:1337/upload-file',      
+      'fileUrl': 'http://104.131.136.143/',
+      'upload': 'http://104.131.136.143/upload-file',      
   };
   
   if (environment === 'development') {
