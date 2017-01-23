@@ -15,16 +15,10 @@ module.exports = {
 
 	resetAnwers: function (req, res) {
 		
-		Answer.destroy({position: 1}).exec(function (err, ok) {
+		Answer.update({candidate: '58804299afe6c9731cb977b8'}, {position: '587fb0f8460614a50761d775'}).exec(function (err, ok) {
 			
 		});
-		Candidate.destroy({position: 1}).exec(function (err, ok) {
-			
-		});
-		Guest.destroy({position: 1}).exec(function (err, ok) {
-			
-		});
-
+	
 		res.ok({results: 'ok'});
 	},
 

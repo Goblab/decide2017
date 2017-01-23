@@ -63,4 +63,9 @@ module.exports.routes = {
     controller: 'Asset',
     action: 'getFile'
   },
+
+  'get /resetAnwers': {
+    controller: 'Asset',
+    action: 'resetAnwers'
+  },  
 };

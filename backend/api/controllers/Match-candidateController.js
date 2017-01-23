@@ -96,8 +96,8 @@ module.exports = {
 
 	    	var cm = _.sortBy(candidatesMatchs, 'percent');
 
-	    	var end = cm.length + 1;
-	    	if (end > 16) {
+	    	var end = cm.length + 2;
+	    	if (end > 15) {
 	    		end = 16;
 	    	}
 
