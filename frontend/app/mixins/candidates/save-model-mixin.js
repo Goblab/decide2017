@@ -31,12 +31,14 @@ export default Ember.Mixin.create({
               returnRoute += rs[i] + ".";
             }
             returnRoute += 'index';
+            this.get('controller').set('loading', false);
             route.transitionTo(returnRoute);
           });          
         } else {
-
+          this.get('controller').set('loading', false);
         }
        }, function() {
+        this.get('controller').set('loading', false);
         console.log('Failed to save the model');
       });
     }

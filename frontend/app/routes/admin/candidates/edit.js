@@ -9,7 +9,7 @@ export default Ember.Route.extend(SaveModelMixin, AuthenticatedRouteMixin, {
   	return Ember.RSVP.hash({
         alliances: this.store.findAll('alliance'),
         positions: this.store.findAll('position'),
-        answers: this.store.query('answer', {candidate: params.candidate_id}),
+        answers: this.store.query('answer', {candidate: params.candidate_id, sort: 'question'}),
         candidate: this.store.find('candidate', params.candidate_id),
    	})  	
   },

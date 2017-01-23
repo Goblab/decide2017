@@ -60,4 +60,35 @@ module.exports.policies = {
     update: ['hasJsonWebToken'],
     delete: ['hasJsonWebToken'],
   },
+
+
+  CandidateController: {
+    create: ['hasJsonWebToken', 'isAdmin'],
+    update: ['hasJsonWebToken', 'isAdmin'],
+    delete: ['hasJsonWebToken', 'isAdmin'],
+  },
+
+  CategoryController: {
+    create: ['hasJsonWebToken', 'isAdmin'],
+    update: ['hasJsonWebToken', 'isAdmin'],
+    delete: ['hasJsonWebToken', 'isAdmin'],
+  },  
+
+  QuestionController: {
+    create: ['hasJsonWebToken', 'isAdmin'],
+    update: ['hasJsonWebToken', 'isAdmin'],
+    delete: ['hasJsonWebToken', 'isAdmin'],
+  },
+
+  PositionController: {
+    create: ['hasJsonWebToken', 'isAdmin'],
+    update: ['hasJsonWebToken', 'isAdmin'],
+    delete: ['hasJsonWebToken', 'isAdmin'],
+  },
+
+  AllianceController: {
+    create: ['hasJsonWebToken', 'isAdmin'],
+    update: ['hasJsonWebToken', 'isAdmin'],
+    delete: ['hasJsonWebToken', 'isAdmin'],
+  },  
 };

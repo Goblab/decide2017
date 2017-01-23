@@ -25,7 +25,7 @@
 							       <div class="sub header">{{match.candidate.alliance.name}}</div>
 							       </div>
 							       <button class="ui mini button inverted red" style="float: right; margin: 13px 0 0 15px;">
-							       	Ver respuestas
+							       	Ver Coincidencias
 							       </button>
 							       <div class="value" style="float: right; font-size: 40px; margin: 15px 0 0 0;">
 							       	{{match.percent}}%
@@ -36,15 +36,15 @@
 							       	{{#each match.answers as |aw|}}
 							       		<li class="item success success-{{aw.success}} answer-{{aw.guestValueString}}-{{aw.valueString}}">
 							       			{{fa-icon 'check'}}
-								       		<span>{{aw.question.category.name}}</span>
-								       		<h2>{{aw.question.title}}</h2>
-								       		<div class="comment">
-								       			{{aw.comment}}
-								       		</div>
 								       		<div class="answer-value answer-{{aw.guestValueString}}-{{aw.valueString}}">
 									       		<span class="guest-value"> Tu respuesta fue: {{aw.guestValueString}}</span>
 									       		<span class="guest-value">Respuesta del candidato: {{aw.valueString}}
 									       		</span>
+								       		</div>
+								       		<span>{{aw.question.category.name}}</span>
+								       		<h2>{{aw.question.title}}</h2>
+								       		<div class="comment">
+								       			{{aw.comment}}
 								       		</div>
 							       		</li> 
 							       	{{/each}}
@@ -139,13 +139,7 @@
 				<img src="/assets/images/logo-vertical-decide-2017.png" width="200" alt="">
 			</div>
 			<div class="start-options">
-			      {{ember-selectize
-			        content=positions
-			        optionLabelPath="content.name"
-			        selection=position
-			        placeholder="Selecciona un Cargo"
-			      }}
-			    {{#if position}}
+			{{#if position}}
 				<button class="ui tiny right labeled fluid inverted icon button" {{action 'newGame'}}>
 				  <i class="right arrow icon"></i>
 				  Comenzar Juego
