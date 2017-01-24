@@ -39,6 +39,34 @@ export default Ember.Component.extend({
 	}),
 
 
+	twitterText: Ember.computed('matchs.firstObject.candidate.name', function () {
+		var m = this.get('matchs.firstObject');
+		if (m) {
+			var candidateName = m.candidate.get('name');
+			var points = m.points;
+			return "Decide2017: Mi Candidato es " + candidateName + " con " + points + encodeURIComponent(" coincidencias. http://decide2017.com/#/result/" + this.get('guest').get('id') + "/view"); 
+		} else {
+			return "";
+		}
+	}),
+
+
+	facebookText: Ember.computed('matchs.firstObject.candidate.name', function () {
+		var m = this.get('matchs.firstObject');
+		if (m) {
+			var candidateName = m.candidate.get('name');
+			var points = m.points;
+			return "Mi Candidato es " + candidateName + " con " + points + " coincidencias."; 
+		} else {
+			return "";
+		}
+	}),
+
+	facebookURL: Ember.computed('matchs.firstObject.candidate.name', function () {
+		return "http://decide2017.com/" + encodeURIComponent("#/result/" + this.get('guest').get('id') + "/view");
+	}),
+
+
 	hasNextStep: Ember.computed('currentQuestionIndex', 'questions', function () {
 		return (this.get('currentQuestionIndex') < (this.get('questions.length') - 1));
 	}),
@@ -153,6 +181,8 @@ export default Ember.Component.extend({
 							}
 						});
 
+						mm.answers = mm.answers.sortBy('question');
+
 						matchs.push(Ember.Object.create({
 							candidate: candidate,
 							percent: mm.percent,
@@ -246,6 +276,9 @@ export default Ember.Component.extend({
 									}
 								}
 							});
+							
+							mm.answers = mm.answers.sortBy('question');
+
 							matchs.push(Ember.Object.create({
 								candidate: candidate,
 								percent: mm.percent,

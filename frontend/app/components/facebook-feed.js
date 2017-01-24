@@ -22,12 +22,11 @@ export default Ember.Component.extend({
 
   showShareDialog: function(e){
     
-
     var title = this.get('data-title'),
         desc = this.get('data-desc'),
-        url = window.location.href,
+        url = this.get('url'),
         caption = this.get('data-caption'),
-        image = "";
+        image = this.get('image');
 
     		this.postToFeed(title, desc, url, image, caption);
  			
