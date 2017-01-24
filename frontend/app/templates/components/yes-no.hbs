@@ -1,31 +1,54 @@
-{{#if yesSelected}}
-	<button {{action 'yes'}} class="ui green tiny button">
-      <i class="fa fa-check"></i>Si
-    </button>
-{{else}}
-	<button {{action 'yes'}} class="ui green tiny button">
-		<i class="fa fa-check"></i>Si
-	</button>
-{{/if}}
+{{#if answer.value}}
+	{{#if yesSelected}}
+		<button {{action 'yes'}} class="ui green tiny button">
+	      <i class="fa fa-check"></i>Si
+	    </button>
+	{{else}}
+		<button {{action 'yes'}} class="ui grey tiny button">
+			<i class="fa fa-check"></i>Si
+		</button>
+	{{/if}}
+	{{#if noSelected}}
+		<button {{action 'no'}} class="ui red tiny button">
+			<i class="fa fa-close"></i>No
+		</button>
+	{{else}}
+		<button {{action 'no'}} class="ui grey tiny button">
+			<i class="fa fa-close"></i>No
+		</button>
+	{{/if}}
 
-{{#if noSelected}}
-	<button {{action 'no'}} class="ui red tiny button">
-		<i class="fa fa-close"></i>No
-	</button>
+	{{#if noResponsed}}
+		{{#if isNotResponsed}}
+			<button {{action 'noResponse'}} class="ui black tiny button">
+				<i class="fa fa-close"></i>No Responde
+			</button>
+		{{else}}
+			<button {{action 'noResponse'}} class="ui grey tiny button">
+				<i class="fa fa-close"></i>No Responde
+			</button>
+		{{/if}}
+	{{/if}}
 {{else}}
-	<button {{action 'no'}} class="ui red tiny button">
-		<i class="fa fa-close"></i>No
-	</button>
-{{/if}}
+	{{#if noResponsed}}
+		<button {{action 'yes'}} class="ui grey tiny button">
+	      <i class="fa fa-check"></i>Si
+	    </button>
 
-{{#if noResponsed}}
-	{{#if isNotResponsed}}
+		<button {{action 'no'}} class="ui grey tiny button">
+			<i class="fa fa-close"></i>No
+		</button>
+
 		<button {{action 'noResponse'}} class="ui black tiny button">
 			<i class="fa fa-close"></i>No Responde
 		</button>
 	{{else}}
-		<button {{action 'noResponse'}} class="ui grey tiny button">
-			<i class="fa fa-close"></i>No Responde
+		<button {{action 'yes'}} class="ui green tiny button">
+	      <i class="fa fa-check"></i>Si
+	    </button>
+
+		<button {{action 'no'}} class="ui red tiny button">
+			<i class="fa fa-close"></i>No
 		</button>
 	{{/if}}
 {{/if}}
