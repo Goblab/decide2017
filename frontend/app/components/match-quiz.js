@@ -63,7 +63,7 @@ export default Ember.Component.extend({
 	}),
 
 	facebookURL: Ember.computed('matchs.firstObject.candidate.name', function () {
-		return "http://decide2017.com/" + encodeURIComponent("#/result/" + this.get('guest').get('id') + "/view");
+		return "http://decide2017.com/#/result/" + this.get('guest').get('id') + "/view";
 	}),
 
 
