@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin: 0 120px 0 0;
+    margin: 3px 133px 0 0;
     -webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
     -moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
     transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
@@ -73,6 +73,7 @@
         left: 276px;
         top: 10px;
         font-size: 18px;
+
         cursor: pointer;
     }
 }
@@ -81,6 +82,22 @@
     position: fixed;
         top: 10px;
         left: 15px;
+        width: 210px;
+        overflow: hidden;
+        -webkit-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+        -moz-transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+        transition: all 0.88s cubic-bezier(0.7, 0, 0.3, 1);
+        z-index: 99;
+        background: rgba(255, 255, 255, 0.92);
+
+    @include media($main-nav-logo) {
+        width: 50px;
+    }
+
+    &:hover {
+        width: 220px;
+
+    }
 }
 
 .ui.vertical.menu {

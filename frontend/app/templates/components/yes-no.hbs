@@ -1,19 +1,19 @@
 {{#if yesSelected}}
-	<button {{action 'yes'}} class="ui olive tiny button">
+	<button {{action 'yes'}} class="ui green tiny button">
       <i class="fa fa-check"></i>Si
     </button>
 {{else}}
-	<button {{action 'yes'}} class="ui green tiny button">
+	<button {{action 'yes'}} class="ui grey tiny button">
 		<i class="fa fa-check"></i>Si
 	</button>
 {{/if}}
 
 {{#if noSelected}}
-	<button {{action 'no'}} class="ui orange tiny button">
+	<button {{action 'no'}} class="ui red tiny button">
 		<i class="fa fa-close"></i>No
 	</button>
 {{else}}
-	<button {{action 'no'}} class="ui red tiny button">
+	<button {{action 'no'}} class="ui grey tiny button">
 		<i class="fa fa-close"></i>No
 	</button>
 {{/if}}
