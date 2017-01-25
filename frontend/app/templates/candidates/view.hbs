@@ -50,6 +50,14 @@
 		    <label style="font-weight: 600;margin: 5px 0;display: block;">		Respuesta {{answer.response}} 
 		    </label>
 		    <p class="comment-{{answer.dummy}}">{{answer.comment}}</p>
+		    {{#if model.candidate.twitter}}
+
+				<a class="twitter-share-button ui tiny twitter button" href="https://twitter.com/intent/tweet?text={{model.candidate.twitter}} {{answer.comment}}" data-size="large">
+					Twitear respuesta
+					{{fa-icon 'twitter'}}
+				</a>
+
+		   	{{/if}}
 		  </div>
 		</li>
 	{{/each}}
