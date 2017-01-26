@@ -55,6 +55,10 @@
     //background: #f9f9f9;
     border-radius: 6px;
 
+    @include media($mobile) {
+        padding: 0;
+    }
+
     .quiz {
         background: #fff;
         border-radius: 10px;
@@ -130,15 +134,21 @@
     }
 
     .answer-value {
-        margin: 15px 0 0 0;
-        //position: absolute;
-        //top: 15px;
-        //right: 15px;
+        margin: 6px 0 10px 0;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px dotted #ddd;
 
         .guest-value {
             margin: 5px 0;
             display: block;
         }
+    }
+
+    .comment {
+        font-family: $font-sans;
+        font-size: 20px;
+        line-height: 25px;
     }
 }
 
@@ -157,6 +167,14 @@
         font-weight: 600;
         font-size: 14px;
         font-family: "Alegreya Sans", sans-serif;
+    }
+
+    .match-icon {
+        
+        span {
+            padding-left: 4px;
+            font-size: 19px;
+        }
     }
 
     h2 {
@@ -216,15 +234,16 @@ position: relative;
 
     .success {
         position: relative;
+        
 
         .fa {
-            font-size: 30px;
+            font-size: 26px;
         }
 
         .fa::before {
-            position: absolute;
-            right: 20px;
-            top: 15px;
+            position: relative;
+            //right: 20px;
+            top: 2px;
         }
 
         &-true {
@@ -232,7 +251,15 @@ position: relative;
             padding: 1em;
 
             .fa {
+                color: #16ab39;
+            }
+
+            .match-icon {
                 color: #16ab39
+            }
+
+            .answer-value {
+                color: #16ab39;
             }
         }
 
@@ -241,6 +268,14 @@ position: relative;
             padding: 1em;
 
             .fa {
+                color: #e24b31;
+            }
+
+            .match-icon {
+                color: #e24b31;
+            }
+
+            .answer-value {
                 color: #e24b31;
             }
 

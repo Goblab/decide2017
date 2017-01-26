@@ -24,11 +24,8 @@
 			{{model.candidate.bio}}
 		</p>
 	</div>
-</div>
-
-<ul class="candidate-answers">
-	<div class="answer-reference" style="text-align: center;background: #f9f9f9;padding: 15px 0;">
-		<b style="font-weight: 600">Tipos de respuesta:</b>
+	<div class="answer-reference" style="text-align: center;padding: 10px 0;">
+		<b style="font-weight: 600; color: #333;">Tipos de respuesta:</b>
 		<a class="ui black image label">
 		  Oficial
 		</a>
@@ -42,17 +39,22 @@
 		  Interpretada
 		</a>
 	</div>
+</div>
+
+
+<ul class="candidate-answers">
 	{{#each model.answers as |answer|}}
 		<li class="item">
 		  <span>{{answer.question.category.name}}</span> 
-		  <h2>{{answer.question.title}}</h2> 
+		  <h2>{{answer.question.title}}
+			<b style="font-weight: 600;">{{answer.response}}</b>
+		  </h2> 
 		  <div class="item-comment">
-		    <label style="font-weight: 600;margin: 5px 0;display: block;">		Respuesta {{answer.response}} 
-		    </label>
+		  	<div class="label-{{answer.dummy}}">Respuesta {{answer.dummy}}</div>
 		    <p class="comment-{{answer.dummy}}">{{answer.comment}}</p>
 		    {{#if model.candidate.twitter}}
 
-				<a class="twitter-share-button ui tiny twitter button" href="https://twitter.com/intent/tweet?text={{model.candidate.twitter}} {{answer.comment}}" data-size="large">
+				<a class="twitter-share-button ui mini twitter button" href="https://twitter.com/intent/tweet?text={{model.candidate.twitter}} {{answer.comment}}" data-size="large">
 					Twitear respuesta
 					{{fa-icon 'twitter'}}
 				</a>
