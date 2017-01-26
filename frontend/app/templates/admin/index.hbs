@@ -17,11 +17,13 @@
 	{{#link-to 'admin.questions'}}Preguntas{{/link-to}}
 </li>
 <li>
-	{{#link-to 'admin.candidates'}}candidatos{{/link-to}}
+	{{#link-to 'admin.candidates'}}Candidatos{{/link-to}}
 </li>
 </ul>
 
+<div style="display: none;">
 <input class="input-file scan-app-magia" type="file" id="file" style="color: #333;">
 <a {{action 'process'}} class="ui button primary scan-app-process">Cargar data</a>
+</div>
 
 </div>
