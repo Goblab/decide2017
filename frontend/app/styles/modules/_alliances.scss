@@ -1,0 +1,68 @@
+.alliances,
+.alliance-view {
+	float: left;
+	width: 100%;
+	background: #fff;
+	border-radius: 6px;
+}
+
+.alliances {
+	padding: 15px;
+
+	&-list {
+		float: left;
+		width: 100%;
+		font-family: $font-sans !important;
+
+		.item {
+			float: left;
+			width: 100%;
+			padding: 0.5em 0;
+			border-bottom: 1px solid #ddd;
+			margin: 5px 0;
+			position: relative;
+			min-height: 110px;
+		}
+
+		.image {
+			//height: 82px;
+			width: 150px;
+			margin: 0;
+			/* display: inline-block; */
+			overflow: hidden;
+			position: absolute;
+			//border-radius: 50px;
+		    //border: 1px solid #ddd;
+		    text-align: center;
+			img {
+				height: 100px;
+			}
+		}
+
+
+		.content {
+			position: relative;
+			display: block;
+			margin: 10px 0 0 162px;
+			float: left;
+		}
+
+		.header {
+			position: relative;
+			margin: 0 0 5px 0;
+			font-weight: 800;
+		}
+
+		.description {
+			position: relative;
+		}
+
+		.action {
+			position: relative;
+			float: right;
+		}
+
+
+	}
+
+}

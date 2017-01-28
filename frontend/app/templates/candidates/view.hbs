@@ -24,21 +24,6 @@
 			{{model.candidate.bio}}
 		</p>
 	</div>
-	<div class="answer-reference" style="text-align: center;padding: 10px 0;">
-		<b style="font-weight: 600; color: #333;">Tipos de respuesta:</b>
-		<a class="ui black image label">
-		  Oficial
-		</a>
-		<a class="ui red image label">
-		  No respondio
-		</a>
-		<a class="ui green image label">
-		  Textual
-		</a>
-		<a class="ui yellow image label">
-		  Interpretada
-		</a>
-	</div>
 </div>
 
 
@@ -49,6 +34,7 @@
 		  <h2>{{answer.question.title}}
 			<b style="font-weight: 600;">{{answer.response}}</b>
 		  </h2> 
+		  {{#if answer.comment}}
 		  <div class="item-comment">
 		  	<div class="label-{{answer.dummy}}">Respuesta {{answer.dummy}}</div>
 		    <p class="comment-{{answer.dummy}}">{{answer.comment}}</p>
@@ -61,6 +47,7 @@
 
 		   	{{/if}}
 		  </div>
+		  {{/if}}
 		</li>
 	{{/each}}
 </ul>

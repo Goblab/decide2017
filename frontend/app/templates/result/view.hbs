@@ -23,21 +23,22 @@
 				       <ul class="candidate-answers-result">
 				       	{{#each match.answers as |aw|}}
 				       		<li class="item success success-{{aw.success}} answer-{{aw.guestValueString}}-{{aw.valueString}}">
-				       			{{fa-icon 'check'}}
+				       			<div class="match-icon">
+					       			{{fa-icon 'check'}}
+					       			<span>{{aw.question.category.name}}</span>
+				       			</div>
+				       			<h2>{{aw.question.title}}</h2>
 					       		<div class="answer-value answer-{{aw.guestValueString}}-{{aw.valueString}}">
-						       		<span class="guest-value"> Tu respuesta fue: {{aw.guestValueString}}</span>
 						       		<span class="guest-value">Respuesta del candidato: {{aw.valueString}}
 						       		</span>
+						       		<span class="guest-value"> Tu respuesta: {{aw.guestValueString}}</span>
 					       		</div>
-					       		<span>{{aw.question.category.name}}</span>
-					       		<h2>{{aw.question.title}}</h2>
 					       		<div class="comment">
 					       			{{aw.comment}}
 					       		</div>
 				       		</li> 
 				       	{{/each}}
 				       </ul>
-
 				   </div>
 
 				{{/ui-accordion}}
