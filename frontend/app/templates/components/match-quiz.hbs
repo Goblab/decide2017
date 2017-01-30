@@ -140,7 +140,14 @@
 			<div class="start-logo">
 				<img src="/assets/images/logo-vertical-decide-2017.png" width="200" alt="">
 			</div>
+			
 			<div class="start-options">
+		      {{ember-selectize
+		        content=positions
+		        optionLabelPath="content.name"
+		        selection=position
+		        placeholder="Selecciona un Cargo"
+		      }}
 			{{#if position}}
 				<button class="ui tiny right labeled fluid inverted icon button" {{action 'newGame'}}>
 				  <i class="right arrow icon"></i>
