@@ -34,10 +34,13 @@
 		  <h2>{{answer.question.title}}
 			<b style="font-weight: 600;">{{answer.response}}</b>
 		  </h2> 
-		  {{#if answer.comment}}
 		  <div class="item-comment">
-		  	<div class="label-{{answer.dummy}}">Respuesta {{answer.dummy}}</div>
-		    <p class="comment-{{answer.dummy}}">{{answer.comment}}</p>
+		  	<div class="label-none">Respuesta {{answer.dummy}}</div>
+		  	{{#if answer.comment}}
+		    	<p class="comment-none">{{answer.comment}}</p>
+		    {{else}}
+		    	<p class="comment-none">Sin justificar.</p>
+		  	{{/if}}
 		    {{#if model.candidate.twitter}}
 
 				<a class="twitter-share-button ui mini twitter button" href="https://twitter.com/intent/tweet?text={{model.candidate.twitter}} {{answer.comment}}" data-size="large">
@@ -47,7 +50,6 @@
 
 		   	{{/if}}
 		  </div>
-		  {{/if}}
 		</li>
 	{{/each}}
 </ul>
