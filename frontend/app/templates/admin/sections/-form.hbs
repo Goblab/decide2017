@@ -1,0 +1,19 @@
+<div class="section-content home ui segment tall stacked">
+<form {{action "save" on="submit"}} class="ui form">
+  <div class="field">
+    <label>
+      Slug
+      {{input type="text" value=model.slug}}
+    </label>
+  </div>
+  <div class="field">
+    <label>
+      Contenido
+ 	  {{froala-editor content=model.content}}
+    </label>
+  </div>
+  <div class="field">
+    <input class="ui button" type="submit" value="Guardar">
+  </div>
+</form>
+</div>

@@ -6,7 +6,9 @@
 	{{#each model as |alliance|}}
 		<div class="item"> 
 			<div class="image">
-			  <img src="{{alliance.avatar.url}}">
+			  {{#if alliance.avatar.isLoaded}}
+			  	<img src="{{alliance.avatar.url}}">
+			  {{/if}}
 			</div>
 			<div class="content">
 				<h2 class="header">

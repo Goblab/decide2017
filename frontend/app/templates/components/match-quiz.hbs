@@ -18,8 +18,9 @@
 						<li>
 							{{#ui-accordion as |execute|}}
 							   <div class="ui image candidate-results header title">
-
-							       <img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
+							       	{{#if candidate.avatar.isLoaded}}
+							       		<img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
+				  					{{/if}}
 							       <div class="content">
 							       {{match.candidate.name}}
 							       <div class="sub header">{{match.candidate.alliance.name}}</div>
@@ -117,7 +118,10 @@
 						<tr>
 					      <td>
 					        <h4 class="ui image header">
-					        	<img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
+						       	{{#if candidate.avatar.isLoaded}}
+						       		<img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
+			  					{{/if}}
+
 					        	<div class="content">
 					            {{match.candidate.name}}
 					            <div class="sub header">{{match.candidate.alliance.name}}</div>

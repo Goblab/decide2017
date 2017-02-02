@@ -6,9 +6,10 @@
     "font-awesome": "~4.5.0",
     "ember-simple-auth": "0.8.0",
     "selectize": "miguelcobain/selectize.js#master",
-	"tooltipster": "^3.3.0",
-	"neat": "1.7.2",
-	"bourbon": "4.2.6",
-	"semantic-ui": "^2.1.8"
+    "tooltipster": "^3.3.0",
+    "neat": "1.7.2",
+    "bourbon": "4.2.6",
+    "semantic-ui": "^2.1.8",
+    "froala-wysiwyg-editor": "~2.4.2"
   }
 }

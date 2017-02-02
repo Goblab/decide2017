@@ -1,0 +1,37 @@
+<h2 class="ui header dividing -flex">
+    Listado de Secciones
+    <div class="actions">{{link-to "Crear nuevo Seccion" "admin.sections.new" classNames="ui orange button tiny" }}</div>
+</h2>
+
+
+{{#if model.length}}
+ <div class="section-content ">
+  <table class="ui celled striped table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each model as |section|}}
+      <tr>
+        <td class="collapsing">
+           {{section.slug}}
+        </td>
+        <td class="right aligned collapsing">
+          {{link-to "Editar" "admin.sections.edit" section class="ui button tiny"}}
+          <a href="#" {{action "remove" section}} class="ui button tiny">Eliminar</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+  <div class="loading">
+  
+  </div>
+{{/if}}
+
+
