@@ -18,7 +18,7 @@
 						<li>
 							{{#ui-accordion as |execute|}}
 							   <div class="ui image candidate-results header title">
-							       	{{#if candidate.avatar.isLoaded}}
+							       	{{#if match.candidate.avatar.isLoaded}}
 							       		<img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
 				  					{{/if}}
 							       <div class="content">
@@ -118,7 +118,7 @@
 						<tr>
 					      <td>
 					        <h4 class="ui image header">
-						       	{{#if candidate.avatar.isLoaded}}
+						       	{{#if match.candidate.avatar.isLoaded}}
 						       		<img src="{{match.candidate.avatar.url}}" class="ui mini rounded image">
 			  					{{/if}}
 
