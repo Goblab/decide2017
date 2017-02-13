@@ -1,0 +1,213 @@
+{{outlet}}
+
+<div class=start>  
+  <div class="ui label">
+    <h2>Seleccione la Provincia donde va a sufragar</h2>
+  </div>
+    <div class="ui horizontal divider"></div>
+  
+      <div class="customDropdownSearchTextInput ui search selection dropdown">
+        <input type="hidden" name="provincias">
+      <div class="default text">Provincia</div> <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item" data-value="A">Azuay</div>
+      <div class="item" data-value="B">Bolivar</div>
+      <div class="item" data-value="F">Cañar</div>
+      <div class="item" data-value="C">Carchi</div>
+      <div class="item" data-value="X">Cotopaxi</div>
+      <div class="item" data-value="H">Chimborazo</div>
+      <div class="item" data-value="O">El Oro</div>
+      <div class="item" data-value="E">Esmeraldas</div>
+      <div class="item" data-value="G">Guayas</div>
+      <div class="item" data-value="I">Imbabura</div>
+      <div class="item" data-value="L">Loja</div>
+      <div class="item" data-value="R">Los Ríos</div>
+      <div class="item" data-value="M">Manabí</div>
+      <div class="item" data-value="S">Morona Santiago</div>
+      <div class="item" data-value="N">Napo</div>
+      <div class="item" data-value="Y">Pastaza</div>
+      <div class="item" data-value="P">Pichincha</div>
+      <div class="item" data-value="T">Tungurahua</div>
+      <div class="item" data-value="Z">Zamora Chinchipe</div>
+      <div class="item" data-value="W">Galápagos</div>
+      <div class="item" data-value="U">Sucumbíos</div>
+      <div class="item" data-value="D">Orellana</div>
+      <div class="item" data-value="SD">Santo Domingo De Los Tsáchilas</div>
+      <div class="item" data-value="SE">Santa Elena</div>
+    </div>
+</div>
+    <div class="ui divider" ></div>
+    <div id="descarga_div_id" style="display:none">
+    <a class="positive ui button" id="descarga_id" href='/assets/papeletaspdf/Asambleistas.pdf' download >Descargar</a>
+    </div>
+
+    <div id="descarga_div_id_guayas" style="display:none">
+
+
+        <a class="positive ui button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasGuayasC1.pdf' download >Descargar Circunscripción 1</a>
+      <div class="ui divider" ></div>
+
+      <a class="positive ui button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasGuayasC2.pdf' download >Descargar Circunscripción 2</a>
+   
+<div class="ui divider" ></div>
+      <a class="positive ui button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasGuayasC3.pdf' download >Descargar  Circunscripción 3</a>
+
+      <div class="ui divider" ></div>
+    
+    <a class="positive ui button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasGuayasC4.pdf' download >Descargar Circunscripción 4</a>
+    
+
+    
+    
+</div>
+
+    <div id="descarga_div_id_manabi" style="display:none">
+    
+    <a class="positive ui tiny button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasManabiC1.pdf' download >Descargar Circunscripción 1</a>
+
+    <a class="positive ui tiny button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasManabiC2.pdf' download >Descargar Circunscripción 2</a>
+    </div>
+
+
+<div id="descarga_div_id_pichincha" style="display:none">
+    
+    
+        <a class="positive ui small button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasPichinchaC1.pdf' download >Descargar Circunscripción 1</a>
+    <div class="ui divider" ></div>    
+    
+    <a class="positive ui small button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasPichinchaC2.pdf' download >Descargar Circunscripción 2</a>
+    <div class="ui divider" ></div>
+
+    <a class="positive ui small button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasPichinchaC3.pdf' download >Descargar Circunscripción 3</a>
+
+<div class="ui divider" ></div>
+    <a class="positive ui small button" id="descarga_id" href='/assets/papeletaspdf/AsambleistasPichinchaElResto.pdf' download >Descargar El Resto</a>
+
+    </div>
+  
+
+</div>
+
+
+ <script>
+$('.ui.dropdown').dropdown();
+$('.ui.dropdown').change(
+    function(){
+        
+        a=$('.ui.dropdown').dropdown('get value');
+        
+        
+        switch (a) {
+            case 'A':
+             $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasAzuay.pdf');
+            break;
+            case 'B':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasBolivar.pdf');
+            break;
+            case 'F':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasCaniar.pdf');
+            break;
+            case 'C':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasCarchi.pdf');
+            break;
+            case 'X':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasCotopaxi.pdf');
+            break;
+            case 'H': // descargar pdf chimborazo
+             $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasChimborazo.pdf');
+            break;
+            case 'X':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasCotopaxi.pdf');
+            break;
+            case 'O':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasElOro.pdf');
+            break;
+            case 'E':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasEsmeraldas.pdf');
+            break;
+            case 'G': //Guayas
+            $('#descarga_div_id').hide(); // 
+            $('#descarga_div_id_manabi').hide();
+            break;
+            case 'I':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasImbabura.pdf');
+            break;
+            case 'L':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasLoja.pdf');
+            break;
+            case 'R':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasLosRios.pdf');
+            break;
+            case 'M':// MANABI
+            $('#descarga_div_id').hide();
+            $('#descarga_div_id_guayas').hide();             
+            break;
+            case 'S':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsamMoronaSantiago.pdf');
+            break;
+            case 'N':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasNapo.pdf');
+            break;
+            case 'Y':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasPastaza.pdf');
+            break;
+            case 'P':  // pihincha
+            $('#descarga_div_id').hide();
+            $('#descarga_div_id_guayas').hide();             
+            $('#descarga_div_id_manabi').hide();
+            break;
+            case 'T':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasTungurahua.pdf');
+            break;
+            case 'Z':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsamZamoraChimchipe.pdf');
+            break;
+            case 'W':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasGalapagos.pdf');
+            break;
+            case 'U':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasSucumbios.pdf');
+            break;
+            case 'D':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistaOrellana.pdf');
+            break;
+            case 'SD':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasSantoDomingo.pdf');
+            break;
+            case 'SE':
+            $("#descarga_id").attr('href','/assets/papeletaspdf/AsambleistasSantaElena.pdf');
+            break;
+
+        }
+        switch (a){
+            case 'G':
+             $('#descarga_div_id').hide();
+             $('#descarga_div_id_manabi').hide();
+             $('#descarga_div_id_pichincha').hide();
+             $('#descarga_div_id_guayas').show();
+            break;
+            case 'M':
+             $('#descarga_div_id').hide();
+             $('#descarga_div_id_guayas').hide();
+             $('#descarga_div_id_pichincha').hide();
+             $('#descarga_div_id_manabi').show();
+             break;
+            case 'P':
+             $('#descarga_div_id').hide();
+             $('#descarga_div_id_guayas').hide();
+             $('#descarga_div_id_manabi').hide();
+             $('#descarga_div_id_pichincha').show();
+             break;
+            default:
+             $('#descarga_div_id_guayas').hide();
+             $('#descarga_div_id_manabi').hide();
+             $('#descarga_div_id_pichincha').hide();
+             $('#descarga_div_id').show();
+            break;
+        }
+        
+    }
+    );
+
+
+</script>

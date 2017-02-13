@@ -90,6 +90,7 @@ Router.map(function() {
 
   });
   this.route('methodology');
+  this.route('papeletas');
 });
 
 export default Router;
