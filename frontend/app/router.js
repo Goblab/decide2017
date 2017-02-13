@@ -60,6 +60,13 @@ Router.map(function() {
         });
       });
 
+      this.route("sections", function() {
+        this.route("new");
+        this.route("edit", {
+          path: ":section_id/edit"
+        });
+      });      
+
       this.route("questions", function() {
         this.route("new");
         this.route("edit", {
